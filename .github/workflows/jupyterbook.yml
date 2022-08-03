@@ -1,0 +1,50 @@
+name: Jupyterbook
+
+on:
+  push:
+    branches:
+    - main
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  build_n_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install dependencies
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.10
+
+    - name: Install pip and wheel
+      run: |
+        python -m pip install --upgrade pip 
+        pip install wheel
+
+    # - name: Install ffmpeg
+    #   # for the mp4 generation
+    #   run: sudo apt-get update && sudo apt-get install ffmpeg
+
+    - name: Install deps
+      run: |
+        pip install -r requirements.txt
+
+    # Build the book
+    - name: Build the book
+      run: |
+        export PYTHONPATH=$PYTHONPATH:$PWD
+        jupyter-book build .
+
+    # - name: move mp4s into images
+    #   run: |
+    #     mkdir -p reblog/_build/html/_images/
+    #     mv reblog/*.mp4 reblog/_build/html/_images/
+
+    # Push the book's HTML to github-pages
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: _build/html
