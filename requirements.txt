@@ -1,3 +1,9 @@
 jupyter-book
+
 matplotlib
 numpy
+gym 
+pandas
+scipy
+seaborn
+
