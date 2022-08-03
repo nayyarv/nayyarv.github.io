@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Working on a Remote Host &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Rationale" href="../Hiring/interviews.html" />
+    <link rel="prev" title="Hidden Complexity" href="../Machine%20Learning/nn.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Maths
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Automating%20Binwidth%20Choice%20for%20Histogram.html">
+   Automating Binwidth for np.histogram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Bayesian%20GPS.html">
+   Question
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Tosser.html">
+   The Game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/abtesting.html">
+   A/B testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/CartPole%20Q%20Learning.html">
+   Q-Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/Reinforcement%20Tosser.html">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/nn.html">
+   Hidden Complexity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Working on a Remote Host
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hiring Muses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/interviews.html">
+   The Rationale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/resumescreen.html">
+   Education/Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/super.html">
+   Do I need Data Science Checklist
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/Software/lsyncd.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Software/lsyncd.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Working on a Remote Host
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lsyncd">
+   Lsyncd
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caveats">
+   Caveats
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Working on a Remote Host</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Working on a Remote Host
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lsyncd">
+   Lsyncd
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caveats">
+   Caveats
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p>Title: Lsyncd
+Subtitle: Or working on remote servers
+Date: 2019-05-10 10:20
+Category: practical
+Tags: practical, remote, training
+Authors: Varun Nayyar</p>
+<p>This is a short blog on using lsycnd, a tool to sync between you and a remote host.</p>
+<section id="working-on-a-remote-host">
+<h1>Working on a Remote Host<a class="headerlink" href="#working-on-a-remote-host" title="Permalink to this headline">#</a></h1>
+<p>In many instances, I find it necessary to work on a remote host. The reasons are numerous, but commonly come down to hardware - I need a GPU or a much beefier compute instance than my laptop can provide. This is not the only reason, the other common reason has been data location - my datasets were in the US and I was in Sydney. It’s much faster to send your code over than TBs of data, so that was a no brainer. Of course, corporate IT might mandate it under Data Loss Prevention ideas, but the fact of the matter, running your code on a remote server is a relatively common thing we need to do as Data Scientists.</p>
+<p>I vastly prefer the tools I grew up with before I got good with vim and using vim over high latency connections is annoying and I haven’t spent the time configuring vim to be on par with what an IDE gets you out of the box. So I use a tool called <code class="docutils literal notranslate"><span class="pre">lsyncd</span></code> instead</p>
+</section>
+<section id="lsyncd">
+<h1>Lsyncd<a class="headerlink" href="#lsyncd" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://github.com/axkibe/lsyncd">Lsyncd</a> is a daemon written in lua and C that watches a series of folders and syncs the files that change over rysnc. It’s perfect for keeping your code in sync with a remote host.</p>
+<p>Here’s a minimum lsycnd config file. Save it to a location say <code class="docutils literal notranslate"><span class="pre">~/.lsyncd</span></code>. Use the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> conventions to replace the angle bracket fields.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">settings</span> <span class="p">{</span>
+    <span class="n">logfile</span>    <span class="o">=</span> <span class="s2">&quot;/tmp/lsyncd.log&quot;</span><span class="p">,</span>
+    <span class="n">statusFile</span> <span class="o">=</span> <span class="s2">&quot;/tmp/lsyncd.status&quot;</span><span class="p">,</span>
+    <span class="n">nodaemon</span>   <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">sync</span> <span class="p">{</span>
+    <span class="n">default</span><span class="p">.</span><span class="n">rsyncssh</span><span class="p">,</span>
+    <span class="n">source</span>    <span class="o">=</span> <span class="o">&lt;</span><span class="n">source</span> <span class="n">folder</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">destination</span> <span class="n">host</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">targetdir</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">dest</span> <span class="n">folder</span> <span class="n">on</span> <span class="n">host</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">delay</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">rsync</span>     <span class="o">=</span> <span class="p">{</span>
+        <span class="n">binary</span>   <span class="o">=</span> <span class="s2">&quot;/usr/local/bin/rsync&quot;</span><span class="p">,</span>
+        <span class="n">archive</span>  <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="n">compress</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">exclude</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;build&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;downloads&quot;</span>
+    <span class="p">},</span>
+    <span class="n">ssh</span> <span class="o">=</span> <span class="p">{</span>
+       <span class="n">identityFile</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">private</span> <span class="n">key</span><span class="o">&gt;</span><span class="p">,</span>
+       <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="n">User</span> <span class="o">=</span> <span class="s1">&#39;&lt;username on remote host&gt;&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>    
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Start with <code class="docutils literal notranslate"><span class="pre">lsyncd</span> <span class="pre">~/.lsyncd</span></code> and now lsyncd will sync the folders over (it will need <code class="docutils literal notranslate"><span class="pre">sudo</span></code> on OS X). The config is in lua syntax, so use lua conventions to expand and make it more effective. You can even daemonize the process and have it start on computer startup, though it has a tendency to hang</p>
+</section>
+<section id="caveats">
+<h1>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>It’s not instant - as you write code, you’ll have to wait a few seconds for the sync to happen. Get into the habit of writing a little doc and saving, by then, your code will have sync’d over and you can run</p></li>
+<li><p>Latency severely affects performance - it’s over TCP so your bandwith is latency bound. It’s much worse to servers that are far away.</p></li>
+<li><p>Keep it to code only - Having too many files and too much data to sync over can cause issues with the daemon. I generally keep a few configs handy to ensure I have a few lsyncd instances up that are independent of each other.</p></li>
+</ol>
+<p>Happy coding!</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Software"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Machine%20Learning/nn.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Hidden Complexity</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Hiring/interviews.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Rationale</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The Game &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A/B testing" href="abtesting.html" />
+    <link rel="prev" title="Question" href="Bayesian%20GPS.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Maths
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Automating%20Binwidth%20Choice%20for%20Histogram.html">
+   Automating Binwidth for np.histogram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Bayesian%20GPS.html">
+   Question
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="abtesting.html">
+   A/B testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/CartPole%20Q%20Learning.html">
+   Q-Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/Reinforcement%20Tosser.html">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/nn.html">
+   Hidden Complexity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Software/lsyncd.html">
+   Working on a Remote Host
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hiring Muses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/interviews.html">
+   The Rationale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/resumescreen.html">
+   Education/Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/super.html">
+   Do I need Data Science Checklist
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/content/Maths/Tosser.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/Maths/Tosser.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Maths/Tosser.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Game
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-subtlety">
+   The Subtlety
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constant-betting-strategy">
+   Constant Betting Strategy
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes">
+     Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varied-lambda">
+   Varied
+   <span class="math notranslate nohighlight">
+    \(\lambda\)
+   </span>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Game</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Game
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-subtlety">
+   The Subtlety
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constant-betting-strategy">
+   Constant Betting Strategy
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes">
+     Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varied-lambda">
+   Varied
+   <span class="math notranslate nohighlight">
+    \(\lambda\)
+   </span>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <ul class="simple">
+<li><p>Title: Tosser</p></li>
+<li><p>Subtitle: Beating an Interview Question</p></li>
+<li><p>Date: 2018-10-14 15:05</p></li>
+<li><p>Category: Puzzle</p></li>
+<li><p>Tags: puzzle, gym, interview</p></li>
+<li><p>Author: Varun Nayyar</p></li>
+</ul>
+<p>While chatting with Joe, a bloke I had met at a machine learning meet, the conversation invariably turned to how we hated interviewing and how interview candidates always throw out buzzwords and jump headfirst into problems. We then asked each other our favourite interview questions and jumped in headfirst without thinking.
+In order to defend my behaviour, I argued that the question Joe had posed was far more subtle than what Joe had suggested and this is the result.</p>
+<section id="the-game">
+<h1>The Game<a class="headerlink" href="#the-game" title="Permalink to this headline">#</a></h1>
+<p>The game was this: You can bet as much money as you want on the outcome of a coin toss. If it’s heads, you win 3x what you bet (plus whatever you bet) while if it’s tails, you lose whatever you’ve bet. A more concrete example, you bet 100 on the toss, if it’s heads you win 300 so your total amount is now 400, while if it’s tails, you’re left with 0. This is obviously a positive game, betting <span class="math notranslate nohighlight">\(x\)</span> has an expected return of <span class="math notranslate nohighlight">\(x\)</span>. (A normal toss game has an expected return of 0 in comparison)</p>
+<p>Note I define return as winnings. So starting with 100 and leaving with 1000 is a return of 900. I define value as sum of winnings + initial investment. So starting with 100 and leaving with 1000 is a value of 1000.</p>
+<p>The subtlety of this game is introduced in the fact that you only get a finite number of turns with this game.</p>
+</section>
+<section id="the-subtlety">
+<h1>The Subtlety<a class="headerlink" href="#the-subtlety" title="Permalink to this headline">#</a></h1>
+<p>If this game had only 1 turn, you’d bet as much money as possible on the game. After all, who’d give you a 50% chance at a 300% return, or an expected return of 100% (albeit slightly risky). If this game had infinite number of turns, I would play with the minimum bet each time as my expected return is the minimum bet and the chance of going to 0 is very very rare. Note, this is also why when playing in a casino, you reduce the number of bets you make because each bet has a negative expected return.</p>
+<p>With a finite number of turns, the game changes. If I had 2 turns, betting all my money each time still seems sound since 25% of the time I’d end up 16x or 1500% return with a 25% probability - still appetizing. But nothing 75% of the time. For a game with 10 turns, I’d make a 1 million x return, but this is a 1 in 1024 chance of happening, everything else is 0. Note that my expected return is <span class="math notranslate nohighlight">\((2^n-1)x\)</span> using this strategy, but my median return is <span class="math notranslate nohighlight">\(-x\)</span>. As <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span> my expected return also grows, but my chance of winning keeps decreasing. Now I don’t play the lottery, and if a billionaire decides to match every dollar in the lottery with 3 of his own, I still wouldn’t play the game (though I would pool money and buy as many lottery tickets as possible). So obviously, this strategy of betting everything on each toss is not something I’d want to do</p>
+</section>
+<section id="constant-betting-strategy">
+<h1>Constant Betting Strategy<a class="headerlink" href="#constant-betting-strategy" title="Permalink to this headline">#</a></h1>
+<p>The first time I posed this question to another, the first response I got was what was I optimizing for? It’s clear that optimizing for expected value results in a bet everything each toss, but this is not a good strategy as the number of tosses increase as the chance of any payout diminishes. The next response was to bet half my stash each time so I’d never be out of the game, so I thought I’d look at various statistics for a constant <span class="math notranslate nohighlight">\(\lambda\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(\lambda \in [0,1]\)</span> be the percentage of our current stash <span class="math notranslate nohighlight">\(x\)</span> to bet on the toss. Value <span class="math notranslate nohighlight">\(V\)</span> after one toss</p>
+<p>\begin{align}
+V|Heads =&amp; (1-\lambda) x + 4 \lambda x\
+=&amp; (1 +3 \lambda)x \
+V|Tails =&amp; (1-\lambda) x
+\end{align}</p>
+<p>Hence <span class="math notranslate nohighlight">\(E(V) = (1+\lambda)x\)</span></p>
+<p>Looking at 2 tosses</p>
+<p>\begin{align}
+V|HH =&amp; (1 -\lambda)(V|H) + 4\lambda (V|H) \
+=&amp; (1 +3 \lambda)(V|H) \
+=&amp; (1 +3 \lambda)^2x \
+V|HT =&amp; (1 +3 \lambda)(V|T)\
+=&amp; (1 +3 \lambda)(1-\lambda) x
+\end{align}</p>
+<p>and</p>
+<p>\begin{align}
+V|TT =&amp; (1 -\lambda)(V|T) \
+=&amp; (1 - \lambda)^2x \
+V|TH =&amp; (1 +3 \lambda)(V|T)\
+=&amp; (1 +3 \lambda)(1-\lambda) x
+\end{align}</p>
+<p>This should give us some intuition on the distribution. For a particular fixed strategy, i.e. constant <span class="math notranslate nohighlight">\(\lambda\)</span>, we now have a distribution given number of heads, <span class="math notranslate nohighlight">\(h\)</span> and number of tails <span class="math notranslate nohighlight">\(t\)</span></p>
+<p>\begin{align}
+V|H=h, T=t &amp;= (1+3\lambda)^h (1-\lambda)^t x
+\end{align}</p>
+<p>For <span class="math notranslate nohighlight">\(\lambda =1 \)</span>  we can see that even one tail results in value = 0, while <span class="math notranslate nohighlight">\(\lambda=0\)</span> results in a value of x. This is clearly a binomial expansion, and this makes this quite easy to analyse, in that the more heads has strictly more profit for a fixed <span class="math notranslate nohighlight">\(h+t\)</span>.
+Let’s have a look at mean, median and 25%, 75% results in this space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="k">def</span> <span class="nf">bin_table</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns array of 2 x (n+1) representing earnings x count</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">comb</span>  <span class="c1">#nCr</span>
+    
+    <span class="n">hv</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">lam</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">lam</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">ntails</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">nheads</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">ntails</span>
+        <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">nheads</span><span class="p">]</span> <span class="o">=</span> <span class="n">hv</span><span class="o">**</span><span class="n">nheads</span> <span class="o">*</span> <span class="n">tv</span> <span class="o">**</span> <span class="n">ntails</span>
+        <span class="n">table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">nheads</span><span class="p">]</span><span class="o">=</span>  <span class="nb">int</span><span class="p">(</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">nheads</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">table</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above function we do not enforce a min bet and allow the dollar to be subdivided as much as possible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">bin_table</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">100</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[   3,    1],
+       [  15,    5],
+       [  78,   10],
+       [ 390,   10],
+       [1953,    5],
+       [9765,    1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we need to generate weighted statistics of the above, this is trivial for the mean, but for percentile, we’ll have to write our own</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">weightedPerc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">percentiles</span><span class="p">):</span>
+    <span class="n">percWeights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">/</span><span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">percentiles</span><span class="p">,</span> <span class="n">percWeights</span><span class="p">)</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">percentiles</span><span class="p">,</span> <span class="n">percWeights</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># now the right exclusive doesn&#39;t work for percentiles=100 as</span>
+    <span class="c1"># percweights is always going to have 100 as it&#39;s last value</span>
+    <span class="c1"># we fix this by ensuring the when b1 = len(percentiles), so does b2.</span>
+    <span class="k">if</span> <span class="mi">100</span> <span class="ow">in</span> <span class="n">percentiles</span><span class="p">:</span>
+        <span class="n">b1</span><span class="p">[</span><span class="n">b1</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">percWeights</span><span class="p">)]</span> <span class="o">=</span> <span class="n">b2</span><span class="p">[</span><span class="n">b1</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">percWeights</span><span class="p">)]</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">b1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">b2</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weightedPerc</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   3,   78,  234,  390, 9765])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">dat</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>759.375
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analyse</span><span class="p">(</span><span class="n">Ngames</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Nlams</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">percentiles</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">)):</span>
+    <span class="n">lams</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Nlams</span><span class="p">)</span>
+    <span class="n">summ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Nlams</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">percentiles</span><span class="p">)))</span> <span class="c1"># mean, 25%, median, 75%, max</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nlams</span><span class="p">):</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="n">bin_table</span><span class="p">(</span><span class="n">lams</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Ngames</span><span class="p">)</span>
+        <span class="n">summ</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">dat</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">summ</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">weightedPerc</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">percentiles</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">lams</span><span class="p">,</span> <span class="n">summ</span>
+
+<span class="p">(</span><span class="n">analyse</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="c1"># max, mean, 25%, median, 75%, 100%/max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[    100,     100,     100,     100,     100],
+       [    232,     131,     197,     295,     998],
+       [    497,     131,     282,     605,    5953],
+       [    998,     105,     316,     948,   25600],
+       [   1894,      67,     282,    1185,   87864],
+       [   3428,      32,     197,    1183,  255711],
+       [   5953,      11,     100,     900,  656100],
+       [   9977,       2,      30,     451, 1524157],
+       [  16205,       0,       2,      90, 3267167],
+       [  25600,       0,       0,       0, 6553600]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># just plot percentiles</span>
+<span class="n">NUM_TOSS</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">percentiles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">]</span>
+
+<span class="n">lams</span><span class="p">,</span> <span class="n">datum</span> <span class="o">=</span> <span class="n">analyse</span><span class="p">(</span><span class="n">NUM_TOSS</span><span class="p">,</span> <span class="n">Nlams</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">percentiles</span><span class="o">=</span><span class="n">percentiles</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="mi">0</span><span class="p">]))):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lams</span><span class="p">,</span> <span class="n">datum</span><span class="p">[:,</span> <span class="n">column</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">percentiles</span><span class="p">[</span><span class="n">column</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Percentile Value vs $\lambda$; N = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">NUM_TOSS</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value multiplied&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\lambda$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f279a496770&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Tosser_12_1.png" src="../../_images/Tosser_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># means on a separate plot since these are much greater and the 0 values don&#39;t play nice with logs</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lams</span><span class="p">,</span> <span class="n">datum</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mean value vs $\lambda$; N = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">NUM_TOSS</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value multiplied&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\lambda$&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$\\lambda$&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/Tosser_13_1.png" src="../../_images/Tosser_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;peaks; N = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">NUM_TOSS</span><span class="p">))</span>
+<span class="n">percentiles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">cols</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">datum</span><span class="p">[:,</span><span class="n">cols</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">percentiles</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="si">}</span><span class="s2">%, lambda=</span><span class="si">{</span><span class="n">lams</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">col_p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">percentiles</span><span class="p">[</span><span class="n">col_p</span><span class="p">]</span><span class="si">}</span><span class="s2">%=</span><span class="si">{</span><span class="n">datum</span><span class="p">[:,</span><span class="n">col_p</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+<span class="c1"># meanind = np.argmax(datum[:,0])</span>
+<span class="c1"># print(f&quot;mean, lambda={lams[meanind]:.2f}:&quot;, end=&quot;&quot;)</span>
+<span class="c1"># for col_p in range(1,4):</span>
+<span class="c1">#     print(f&quot; {percentiles[col_p-1]}%={datum[:,col_p][ind]:.2f}&quot;, end = &quot;&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>peaks; N = 8
+25%, lambda=0.17: mean%=3.55 25%=1.36 50%=2.48 75%=4.54
+50%, lambda=0.33: mean%=9.99 25%=1.05 50%=3.16 75%=9.48
+75%, lambda=0.49: mean%=24.95 25%=0.50 50%=2.48 75%=12.20
+</pre></div>
+</div>
+</div>
+</div>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
+<p>A percentile level is not directly comparable in this setting and the percentile graph is best looked at as your range of return for a given <span class="math notranslate nohighlight">\(\lambda\)</span>. Optimizing for 75% results in your 25% case getting worse, while optimizing for your 25% case reduces your possible returns. The higher the percentile you’d like to optimize for, the higher lambda and vice versa and can be seen as a measure of risk taking.</p>
+</section>
+</section>
+<section id="varied-lambda">
+<h1>Varied <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#varied-lambda" title="Permalink to this headline">#</a></h1>
+<p>So we can see that a fixed percentage playing mechanism barely taps into the possible value of the game at various percentile levels. Playing 33% of our value each time has a median value of 3.16 which feels surprisingly little given the high payout of the game.</p>
+<p>As brought up in the beginning, when I don’t have many games left, I’d like to bet more aggressively, since my chances of missing out playing the game is much less and the chance of getting the 4x or 16x multiplier is high enough to be worth the risk. However, if I’ve already got a large amount earned, I might be less aggressive towards the end as I’ve already gained a lot of money. However, I’m not sure what the best way to code a strategy like this. Maybe a gratuitous amount of computing power can help work out the answer? See <span class="xref myst">part 2</span>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Maths"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Bayesian%20GPS.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Question</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="abtesting.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A/B testing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

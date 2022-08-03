@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Question &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Game" href="Tosser.html" />
+    <link rel="prev" title="Automating Binwidth for np.histogram" href="Automating%20Binwidth%20Choice%20for%20Histogram.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Maths
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Automating%20Binwidth%20Choice%20for%20Histogram.html">
+   Automating Binwidth for np.histogram
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Question
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tosser.html">
+   The Game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="abtesting.html">
+   A/B testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/CartPole%20Q%20Learning.html">
+   Q-Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/Reinforcement%20Tosser.html">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/nn.html">
+   Hidden Complexity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Software/lsyncd.html">
+   Working on a Remote Host
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hiring Muses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/interviews.html">
+   The Rationale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/resumescreen.html">
+   Education/Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/super.html">
+   Do I need Data Science Checklist
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/content/Maths/Bayesian GPS.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/Maths/Bayesian GPS.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Maths/Bayesian GPS.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Question
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#my-solution">
+   My Solution
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-likelihood">
+     The Likelihood
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-posterior">
+     The Posterior
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-code">
+     The Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-conclusions">
+   Some Conclusions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-good">
+     The Good
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-work">
+     Further Work
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Question</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Question
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#my-solution">
+   My Solution
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-likelihood">
+     The Likelihood
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-posterior">
+     The Posterior
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-code">
+     The Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-conclusions">
+   Some Conclusions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-good">
+     The Good
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-work">
+     Further Work
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <ul class="simple">
+<li><p>Title: Bayesian GPS</p></li>
+<li><p>Subtitle: A Bayesian take on GPS esque maths</p></li>
+<li><p>Date: 2019-05-23 13:20</p></li>
+<li><p>Category: bayesian, interviews</p></li>
+<li><p>Tags: python, bayesian, gps, interviews</p></li>
+<li><p>Authors: Varun Nayyar</p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="question">
+<h1>Question<a class="headerlink" href="#question" title="Permalink to this headline">#</a></h1>
+<p>I call this the Bayesian GPS problem. In it’s a simplified form, we’re given a 2d plane and a series of distance estimates between ourselves and each tower. We know the location of each tower, but the measurements aren’t super accurate. Given a few thousand of these measurements, we want to know where we are on this 2d plane.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="my-solution">
+<h1>My Solution<a class="headerlink" href="#my-solution" title="Permalink to this headline">#</a></h1>
+<section id="the-likelihood">
+<h2>The Likelihood<a class="headerlink" href="#the-likelihood" title="Permalink to this headline">#</a></h2>
+<p>We consider the error circle in 2 dimensions (I’ve drawn one a bit below). Intuitively it is a
+circle centereed at some co-ordinate <span class="math notranslate nohighlight">\(x\)</span> with a distribution of it’s
+radius <span class="math notranslate nohighlight">\(r\)</span> for values of <span class="math notranslate nohighlight">\(\theta\)</span>. For the sake of simplicity, we
+assume that <span class="math notranslate nohighlight">\(\theta\sim Uniform(0,2\pi)\)</span>, but this is not necessary.</p>
+<p>More formally, using polar co-ordinate notation, we can define the
+distribution in terms of the radius around center <span class="math notranslate nohighlight">\(x\)</span></p>
+<p>\begin{align*}
+\theta\sim &amp; U(0,2\pi)\
+d|r_{i}\sim &amp; Normal(r_{i},(0.1r_{i})^{2})
+\end{align*}</p>
+<p>The choice of d’s variance is a bit contentious, but it makes this method quite adaptable.
+We could quite easily choose a fixed value for each measurement, but generally measurement error tends to be
+proportional to measurements.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(d\)</span> are independent of each other . Since
+<span class="math notranslate nohighlight">\(\theta\)</span> is chosen to be uniform, we can actually drop consideration
+of this value since it’s just a constant normalisation value.</p>
+<p>\begin{align*}
+f(\theta) &amp; =1/2\pi\mbox{ for}\theta\in[0,2\pi]
+\end{align*}</p>
+<p>Now, for location y and measurement point <span class="math notranslate nohighlight">\(x_{i}\)</span>, d is given by
+the L2 norm, i.e.
+\begin{align*}
+d= &amp; \sqrt{(y1-x1_{i})^{2}-(y2-x2_{i})^{2}}
+\end{align*}
+Now we for a location y and observation of <span class="math notranslate nohighlight">\(x_{i}\)</span>,<span class="math notranslate nohighlight">\(r_{i}\)</span>, and
+estimated sd <span class="math notranslate nohighlight">\(rsd_{i}\)</span>the probability of being at location
+y is given by
+\begin{align*}
+p(y|x_{i},r_{i})\propto &amp; \phi((d-r_{i})/(rsd_{i}))
+\end{align*}</p>
+<p>Where <span class="math notranslate nohighlight">\(\phi\)</span> is the standard normal rv.</p>
+<p>Intuitively, we convert the <span class="math notranslate nohighlight">\(x_{i}\)</span> and y into a distance and then
+calculate the likelihood of seeing such a radius for our chosen distribution.
+The phi is the standard normal pdf but the above can be read <span class="math notranslate nohighlight">\(f(d|r_{i},rsd_{i})\)</span>
+where<span class="math notranslate nohighlight">\(f\sim Norm(r_{i},rsd_{i})\)</span>. Since<span class="math notranslate nohighlight">\(\theta\)</span> doesn’t matter in
+this case, we’ve dropped it, but had we chosen a different distribution
+(say wrapped normal), we would have had to calculate <span class="math notranslate nohighlight">\(\theta\)</span> and
+it’s probability of being at this point.</p>
+<p>Hence the likelihood function for dataset X can be be given as
+\begin{align*}
+ll(y|X)\propto &amp; \sum_{\forall X}\frac{1}{|X|}p(y|x_{i},r_{i})\
+\propto &amp; \sum_{\forall X}p(y|x_{i},r_{i})\
+= &amp; \sum_{\forall X}\phi\left(\frac{d-r_{i}}{rsd_{i}}\right)
+\end{align*}
+Note that we’ve chosen to give each observation an equal weighting
+as depicted with the <span class="math notranslate nohighlight">\(\frac{1}{|X|}\)</span>term, which we can then drop
+since it’s not dependent on the data. This is the un-normalised likelihood
+function which we can calculate for each y. The above equation is
+very similar to a mixture model equation. Due to the exponential and
+square root, this would not provide a closed form solution for the
+MLE. However it is differentiable and thus the problem can be converted
+into a simple optimisation problem to find the MLE.</p>
+</section>
+<section id="the-posterior">
+<h2>The Posterior<a class="headerlink" href="#the-posterior" title="Permalink to this headline">#</a></h2>
+<p>However, the above is effectively a mixture model with each parameter
+known. These can be somewhat pathological likelihood’s with many multiple
+peaks that provide a lot of dependency on the initialisation conditions.
+Imagine an erroneous measurement far away from the true peak, and our hill climb could end up spinning around
+that location. It’s not a robust approach. Instead, we realise that
+we can calculate a posterior and with a flat prior the MLE and the
+Maximum a Posteriori (MAP) value coincide. For 2000 observations and
+2 dimensions, this is not likely to be a problem, but would be for
+larger dims and smaller datasets, this would be more of a problem.</p>
+<p>Additionally, I finished the MAP code before I realised I could solve
+the above equation for the MLE. I could also use auto-differentiation packages
+to solve this problem, but I think brute force is underrated as a technique.
+I think in a 2d problem, brute force is a reasonable solution when everything else
+is a magnitude mroe difficult. Typically, we would run an MCMC and find
+the maximum posteriori by finding the most commonly occurring value, but I
+don’t think the overhead is worth it.</p>
+<p>Having looking at the data, I choose priors <span class="math notranslate nohighlight">\((x,y)\in X\)</span> are independent and <span class="math notranslate nohighlight">\(p(x)\sim U(80,140)\)</span>,
+<span class="math notranslate nohighlight">\(p(y)\sim U(130,190)\)</span>. Again, we use this value because it simplifies
+the maths significantly. (Also gives me another thing I can potentially publish!)</p>
+</section>
+<section id="the-code">
+<h2>The Code<a class="headerlink" href="#the-code" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">patches</span> <span class="k">as</span> <span class="n">mpatches</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; read and augment the rsd&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../resources/data-1.csv&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">],</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;rsd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">r</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">circle_prior</span><span class="p">(</span><span class="n">dat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Produces a bunch of circles for each</span>
+<span class="sd">    observation in the data and plots.</span>
+<span class="sd">    Useful to build prior of the location to search in.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">patches</span> <span class="k">as</span> <span class="n">mpatches</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dat</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">cr</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Circle</span><span class="p">([</span><span class="n">row</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">y</span><span class="p">],</span> <span class="n">row</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">cr</span><span class="p">)</span>
+        
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">dat</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">dat</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">dat</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">dat</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">plot_posterior</span><span class="p">(</span><span class="n">posterior</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Produce a heatmap of posterior.</span>
+<span class="sd">    xticks and yticks are assumed to be </span>
+<span class="sd">    standard prior </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Posterior&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">posterior</span><span class="p">,</span> <span class="n">xticklabels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">140</span><span class="p">)),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">190</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">ll</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The un-normalised likelihood from the model described.</span>
+<span class="sd">    For 2d input y and given 2d location x and distance r.</span>
+<span class="sd">        ll = sum phi( (r - d) / rsd)</span>
+<span class="sd">        where d = sqrt( (y1-x1)^2 + (y2-x2)^2)</span>
+
+<span class="sd">    See readme for more information on the derivation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        y (tuple): location in (x,y) whose likelihood we wish to calculate</span>
+<span class="sd">        dat (pd.DataFrame): x, y, r, rsd</span>
+<span class="sd">            Dataset containing the x,y, and r data as well as the</span>
+<span class="sd">            augmented sd value.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: likelihood at y for given dataset</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># calculate distance from y as a radius</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">dat</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dat</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">zs</span> <span class="o">=</span> <span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">r</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="n">dat</span><span class="o">.</span><span class="n">rsd</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">zs</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+
+    <span class="c1"># set the variance of r to be 10% of the measurement</span>
+    <span class="c1"># this can be changed as required</span>
+
+    <span class="c1"># from an inspection of the circle diagrams,</span>
+    <span class="c1"># we&#39;re quite sure our location is in between</span>
+    <span class="c1"># x=(80,140), y=(130,190).</span>
+    <span class="c1"># This is equivalent to a uniform prior on these regions.</span>
+
+    <span class="c1"># We could use MCMC on the  likelihood function, however, given</span>
+    <span class="c1"># that we need to look at integer values only and our prior is 60x60=3600</span>
+    <span class="c1"># we can achieve this with just a grid search.</span>
+    <span class="c1"># In the general case, this can be done for min and max of x and y</span>
+
+    <span class="c1"># change as required</span>
+    <span class="n">xpriorRange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span>
+    <span class="n">ypriorRange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">190</span><span class="p">)</span>
+
+    <span class="c1"># convenience</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="p">(</span><span class="n">xpriorRange</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ypriorRange</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># pre-allocate posterior</span>
+    <span class="n">posterior</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">60</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+
+    <span class="c1"># for loops are slow and should be avoided</span>
+    <span class="c1"># however for this grid, this is small enough to not be a concern.</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">*</span><span class="n">xpriorRange</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">*</span><span class="n">ypriorRange</span><span class="p">):</span>
+            <span class="n">posterior</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">y</span> <span class="o">-</span> <span class="n">st</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ll</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># find the maximum a posteriori</span>
+    <span class="n">maxap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">posterior</span><span class="p">)</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">maxap</span><span class="p">,</span> <span class="n">posterior</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># remember the shape needs to be updated since we start at st</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">st</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">posterior</span><span class="p">,</span> <span class="n">location</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s draw the circle&#39;s. Let&#39;s keep this to 100 circles</span>
+<span class="c1"># Hopefully this shows you why the prior has been chosen</span>
+<span class="n">gps_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
+<span class="n">circle_prior</span><span class="p">(</span><span class="n">gps_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># let&#39;s draw the circle&#39;s. Let&#39;s keep this to 100 circles</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Hopefully this shows you why the prior has been chosen</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">gps_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">circle_prior</span><span class="p">(</span><span class="n">gps_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="nn">Input In [1],</span> in <span class="ni">get_data</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="sd">&quot;&quot;&quot; read and augment the rsd&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../resources/data-1.csv&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">],</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">data</span><span class="p">[</span><span class="s2">&quot;rsd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">r</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">return</span> <span class="n">data</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/pandas/util/_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py:680,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">680</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py:575,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">575</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py:934,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">934</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1218,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1214</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;rb&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1215</span> <span class="c1"># error: No overload variant of &quot;get_handle&quot; matches argument types</span>
+<span class="g g-Whitespace">   </span><span class="mi">1216</span> <span class="c1"># &quot;Union[str, PathLike[str], ReadCsvBuffer[bytes], ReadCsvBuffer[str]]&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1217</span> <span class="c1"># , &quot;str&quot;, &quot;bool&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1218</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1219</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1220</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1221</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1222</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1223</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1224</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1225</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1226</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1227</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1228</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1229</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/pandas/io/common.py:786,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">786</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../resources/data-1.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s see what the error circle looks like</span>
+<span class="n">testdat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">110</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;rsd&#39;</span><span class="p">])</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">testdat</span><span class="p">)</span>
+<span class="n">plot_posterior</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Bayesian GPS_5_0.png" src="../../_images/Bayesian GPS_5_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s see what 2 intersecting error circles looks like</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">gps_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plot_posterior</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Location at </span><span class="si">{</span><span class="n">lo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Bayesian GPS_6_0.png" src="../../_images/Bayesian GPS_6_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location at (112, 158)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">gps_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plot_posterior</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Location at </span><span class="si">{</span><span class="n">lo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Bayesian GPS_7_0.png" src="../../_images/Bayesian GPS_7_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location at (114, 165)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note the outlier measurement in the top right</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">gps_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plot_posterior</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Location at </span><span class="si">{</span><span class="n">lo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Bayesian GPS_8_0.png" src="../../_images/Bayesian GPS_8_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location at (117, 162)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">gps_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">plot_posterior</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Location at </span><span class="si">{</span><span class="n">lo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Bayesian GPS_9_0.png" src="../../_images/Bayesian GPS_9_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location at (116, 161)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">gps_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
+<span class="n">plot_posterior</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Location at </span><span class="si">{</span><span class="n">lo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Bayesian GPS_10_0.png" src="../../_images/Bayesian GPS_10_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location at (110, 154)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">gps_data</span><span class="p">)</span>
+<span class="n">plot_posterior</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Location at </span><span class="si">{</span><span class="n">lo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Bayesian GPS_11_0.png" src="../../_images/Bayesian GPS_11_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location at (110, 156)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="some-conclusions">
+<h1>Some Conclusions<a class="headerlink" href="#some-conclusions" title="Permalink to this headline">#</a></h1>
+<section id="the-good">
+<h2>The Good<a class="headerlink" href="#the-good" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Bayesian Updating - the implementation allows for bayesian updating - we could calculate the posterior on disjoint sample sets and combine. This is nice since we can calculate how our posterior changes on each observation for limited increase in computation. However the simplistic implementation in Python is not optimised for this.</p></li>
+<li><p>Posterior - while the task was to return a single best fit value, we can actually use the posterior to do proper inference or to guide our search if it isn’t at the most likely spot.</p></li>
+<li><p>Multiple models of error on measurement possible - we have chosen a 10% sd error on the radius but could have chosen a constant value given more information on the measurement. We didn’t model the error in location of x,y for simplicity as we can consider this as part of the error in our location</p></li>
+<li><p>Robust performance with less data - with just 10 observations we’ve al- ready worked out (117, 162) as the MAP. Would allow fewer observations to get good inference.</p></li>
+<li><p>Ability to handle noise - in a frequentist setting, we would see observations like the 9th one could throw off frequentist inference while a Bayesian approach is more robust to outliers</p></li>
+</ol>
+</section>
+<section id="further-work">
+<h2>Further Work<a class="headerlink" href="#further-work" title="Permalink to this headline">#</a></h2>
+<p>All in all this was a simplied approach chosen to simplify the mathematics and calculations as well as respect time already spent. We could try</p>
+<ol class="simple">
+<li><p>Optimisation on Likelihood - we could have used automatic differentiation on the likelihood or even an analytic approach (it’s not that complicated) and found the value y that maximises the Likelihood.</p></li>
+<li><p>There are some similarities to Bayesian Filtering here (I initially considered Kalman Filters due to the inherent similarities) - perhaps we could improve the computational aspect using Bayesian Filtering theory. Fox et al suggests a few ideas worth further investigation.</p></li>
+<li><p>Computation could be sped up by using a GPU approach on the grid search. This could be achieved by implementing the likelihood in tensorflow. Given the loops in python are the primary source of slowness, this could also be simplified with some better software engineering.</p></li>
+<li><p>The informativeness of the priors can be improved significantly. For example, we could choose a fattish normal distribution instead of a uniform x,y. We could also set thetai to be more informative in that it was restricted to the region in the prior. This would mean measurements further away would be more informative as we didn’t have to consider all 2π radians, only the arc that fit inside our prior</p></li>
+<li><p>A full Bayesian approach. Everything is a distribution. This is a quasi frequentist construction with a last second Bayesian-esque inference approach thrown in. I considered simulating the distributions on all of the θi,di,xi, but decided simplicity and conciseness was best. For a smaller dataset, this may make more sense since even at N=100, the posterior is still quite noisy. This would require a full MCMC approach, with a a lot of simulation (8000 from the priors) and a lot of MCMC runs to get it going.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Maths"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Automating%20Binwidth%20Choice%20for%20Histogram.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Automating Binwidth for np.histogram</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Tosser.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Game</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

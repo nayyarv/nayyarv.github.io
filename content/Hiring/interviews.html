@@ -1,0 +1,795 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The Rationale &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Education/Background" href="resumescreen.html" />
+    <link rel="prev" title="Working on a Remote Host" href="../Software/lsyncd.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Maths
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Automating%20Binwidth%20Choice%20for%20Histogram.html">
+   Automating Binwidth for np.histogram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Bayesian%20GPS.html">
+   Question
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Tosser.html">
+   The Game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/abtesting.html">
+   A/B testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/CartPole%20Q%20Learning.html">
+   Q-Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/Reinforcement%20Tosser.html">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/nn.html">
+   Hidden Complexity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Software/lsyncd.html">
+   Working on a Remote Host
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hiring Muses
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Rationale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resumescreen.html">
+   Education/Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="super.html">
+   Do I need Data Science Checklist
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/Hiring/interviews.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Hiring/interviews.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Rationale
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#considerations">
+   Considerations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cardinal-sins">
+   Cardinal Sins
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-principles">
+   General Principles
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#my-questions-in-progress">
+   My Questions (in progress)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-elevator-problem">
+     The Elevator Problem
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#question-statement">
+       Question Statement
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#notes">
+       Notes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#design-a-neural-net">
+     Design a Neural Net
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Question Statement
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Notes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-questions">
+   Further Questions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ml-ds-today">
+   ML &amp; DS today
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Rationale</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The Rationale
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#considerations">
+   Considerations
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cardinal-sins">
+   Cardinal Sins
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-principles">
+   General Principles
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#my-questions-in-progress">
+   My Questions (in progress)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-elevator-problem">
+     The Elevator Problem
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#question-statement">
+       Question Statement
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#notes">
+       Notes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#design-a-neural-net">
+     Design a Neural Net
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Question Statement
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Notes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-questions">
+   Further Questions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ml-ds-today">
+   ML &amp; DS today
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p>Title: Some Technical Interview Questions
+Subtitle: Interviews, ML, decisions
+Date: 2019-08-26 10:20
+Category: interview
+Tags: ds, advice, interviews
+Authors: Varun Nayyar</p>
+<p>I recently had the chance/misfortune to attend a lot of ML interviews and it’s kind of given me a little insight into the industry as it stands right now. I wanted to share the way I interview and why I choose those questions. These questions are mostly ideal for a small/mid size DS/ML tech firm - smaller companies can’t afford as much specialisation and niche areas of research will have people coming in quite unfamiliar that you don’t want to reject unecessarily (a la Google) due to a much weaker recruitment pool.</p>
+<p>This article really only applies to final interviews of candidates, but some ideas might bleed over to screening rounds too.</p>
+<section id="the-rationale">
+<h1>The Rationale<a class="headerlink" href="#the-rationale" title="Permalink to this headline">#</a></h1>
+<p>At a smaller firm, the job title in ML is best described as Research Engineer. You need to have feet in both research and software since you need to be able to implement your ideas as well as roll out to production. You tend to get two different types here - maths majors who’ve learned to program well and programmers who’ve picked up maths. The first group tend to be PhD’s (or dropouts) while the second group tend to be self taught in ML.</p>
+</section>
+<section id="considerations">
+<h1>Considerations<a class="headerlink" href="#considerations" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>It has to be about the fundamentals/basics</p>
+<ul class="simple">
+<li><p>You can’t ask anything specific to your domain - it’s likely to be niche, your candidate is unlikely to have skill in your particular area, and even if he’s coming from a competitor, the way things done are so different, it’s tricky to assume any level of skill. Fundamentally, you can’t select for specific knowledge since either the interviewer is not proficient enough or the candidate isn’t.</p></li>
+<li><p>Seeing if they stay up to date is really difficult since they may, but in an area you’re not familiar in. And if they haven’t read the latest paper in your space, that’s not on them either.</p></li>
+<li><p>You’re trying to work out if they can learn new things. You’re testing for intelligence, not specific knowledge.</p></li>
+</ul>
+</li>
+<li><p>Not everyone has experience with every algorithm. You can’t ask someone about the details of a neural net if they’ve never trained one. Not having experience with torch/tensorflow is meaningless, most people never need to train neural nets and shouldn’t, so it shouldn’t be held against them. I call this the KL divergence criterion - measuring someone’s skill should be independent of the interviewer’s interests and skills.</p></li>
+<li><p>It should give them a chance to go into depth. In order to be about the basics without being a quiz, it should allow the person to dive as deep as they are able. This gives them a chance to show off what they know. Because of this, I don’t necessarily like the idea of 5 independent 45 minute interviews. I think it’s a good idea to have the technical interview run a bit longer and reduce the number of interviews.</p></li>
+<li><p>You should decide on a rubric before you go into the interviewer. This can be modified as you get more experience, but reasoning about how marks should be allocated reduces your bias and also helps getting feedback from colleagues. It also forces you to think about how questions</p></li>
+</ol>
+</section>
+<section id="cardinal-sins">
+<h1>Cardinal Sins<a class="headerlink" href="#cardinal-sins" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>Quizzes. Your interview questions should be good even when doing it open book. Questions like this are of limited benefit and tend to be good for someone fresh out of a data science bootcamp.</p>
+<ul class="simple">
+<li><p>Vanishing gradients in Neural Nets</p></li>
+<li><p>What are support vectors in SVMs</p></li>
+<li><p>The difference between Boosting and Bagging
+Furthermore, these questions impinge on my principle of expecting full coverage of questions and not being good open book questions. They serve well as a screeners, but should be abandoned early.</p></li>
+</ul>
+</li>
+<li><p>Pure software interviews</p>
+<ul class="simple">
+<li><p>Data Structures and algorithms are not good ways to interview ML engineers. There is some benefit, but a very large part of ML engineering doesn’t go that low level since much of it is done in higher level languages that have plenty of abstractions. Most software engineers never really go into much depth in terms of Data Structures, most ML engineers even less. You’ll reject many for no reason</p></li>
+<li><p>These questions are easily gameable. Seeing the study guides for google et al, it doesn’t seem like something you can compete with. Leetcode has nearly every interview and this has resulted in degeneracy in the interview process.</p></li>
+<li><p>These questions have high false positive rates - many rely on tricks or familiarity. It’s worth a simple one  as a fizzbuzz test but nothing more.</p></li>
+<li><p>Software interviews are best combined with real world programming. I had an interview which asked me to implement malloc and free - this was a terrible interview for my skillset, but something that would be good to ask a software engineer. Another example was a key value DB that also kept the time values so you could get historical records too.</p></li>
+</ul>
+</li>
+<li><p>Brain teasers</p>
+<ul class="simple">
+<li><p>This is very rarely a good idea - it can be a proxy feature of what you’re looking for, but it’s a very noisy way of getting that out. This was tried in discarded in the 2000s by most software firms.</p></li>
+<li><p>Again, these are likely to select people who’ve seen the questions and also those who are lucky. It’s also heavily dependent on the interviewers giving good hints.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="general-principles">
+<h1>General Principles<a class="headerlink" href="#general-principles" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>Tailor the interview to the candidate - ask them which areas of ML they’re good at, or provide a few questions and give them a choice. For ML, you don’t want to check their weaknesses, you want to test their strengths.</p>
+<ul class="simple">
+<li><p>I’ve considered asking an interviewee what they’d prefer to be tested on and ask them to prep it and test them on that instead of giving a very broad interview.</p></li>
+<li><p>If they have a publically available project, I think it would be a good idea to ask them to review it and write up a presentation on it. This could be a good way to determine their understanding of their core topic and comfort with presenting.</p></li>
+</ul>
+</li>
+<li><p>Take Home Interview Aside</p>
+<ul class="simple">
+<li><p>this should be used judiciously. If a person has no experience and no portfolio, it’s fair to ask. Less so for experienced candidates since they’ll have other offers and not want to waste time on your interview.</p></li>
+<li><p>Provide choice so the person gets to play to their strengths</p></li>
+<li><p>Ensure the person speaks with someone on the ML team before asking for the assignment. If the person is clearly competent, it may not be necessary and might chase away competent people. It also gives them an indication of fit so they can choose to spend the time on the process</p></li>
+<li><p>Offer payment at market rate (i.e. if you’re paying 100k pay 50/hr). This prevents you from setting stupidly long assignments, shows committment to the candidate and provides a hard time limit. You should get this time limit from asking other members of the team to do this question and estimate time spent on it.</p></li>
+<li><p>Provide a marking rubric - allow the candidate to understand what you value. It also ensures consistency across reviewers and if universities do so, so should you.</p></li>
+</ul>
+</li>
+<li><p>Workshop your interview - testing on a person currently working for the company is a good idea. You get an idea of how long the interview will take (add a multiplier for interview nerves) and if it’s an interview that would pass your current colleagues. You should discuss interview questions with colleagues extensively and try it out on a couple of candidates with low confidence to check it’s performaance in real world scenarios before moving it into the standard rotation.</p></li>
+<li><p>These interviews require more work, but in a competitive market, a good interviewing experience can really help you stand out. They also give you a chance to get someone’s best performance instead of the relatively noisy current interview style.</p></li>
+</ol>
+</section>
+<section id="my-questions-in-progress">
+<h1>My Questions (in progress)<a class="headerlink" href="#my-questions-in-progress" title="Permalink to this headline">#</a></h1>
+<section id="the-elevator-problem">
+<h2>The Elevator Problem<a class="headerlink" href="#the-elevator-problem" title="Permalink to this headline">#</a></h2>
+<p>Problem solving in a vacuum. No ML needed, but may bias towards Comp Sci majors since it is algorithmic. I like it since it requires one to state a few assumptions, come to a few simple insights and decide on it.</p>
+<section id="question-statement">
+<h3>Question Statement<a class="headerlink" href="#question-statement" title="Permalink to this headline">#</a></h3>
+<p>A residential building has 20 floors and 3 elevators. The current elevator algorithm chooses the nearest elevator and sends it to the requesting floor. You can assume that elevators are almost always used one at a time (i.e. there is never more than 1 requester and while he/she is in motion, no one else requests an elevator).</p>
+<ol class="simple">
+<li><p>Describe some scenarios which cause subpar performance with this algorithm.</p>
+<ul class="simple">
+<li><p>Hint: consider what happens in the morning and the evenings during the week</p></li>
+</ul>
+</li>
+<li><p>Can you suggest some improvements to the algorithm to minimise waiting time for the residents</p>
+<ul class="simple">
+<li><p>Note: the optimal solution is in research, so make sure they only try to come up with a good algorithm</p></li>
+<li><p>Describe how your considerations would change for an office building</p></li>
+<li><p>How would you evaluate your new algorithm?</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Tests Problem Solving ability and taking poorly defined questions and reasoning about them</p></li>
+<li><p>Stress to candidates that this is not an ML question, just something more deterministic</p></li>
+<li><p>Many problems require simple solutions - recognising that is a good sign</p></li>
+<li><p>Meta level considerations (feasability of having ML in elevators) is usually a good sign.</p></li>
+<li><p>Extra bonus - simulate some data and then evaluate the improvements. Also tests coding ability</p></li>
+</ul>
+</section>
+</section>
+<section id="design-a-neural-net">
+<h2>Design a Neural Net<a class="headerlink" href="#design-a-neural-net" title="Permalink to this headline">#</a></h2>
+<p>Good mix of software systems design and ML considerations. I really like this since neural nets are so simple but have a few design decisions. Additionally, almost every ML person will have some understanding of how Neural Nets work and this requires very little prior knowledge. This should be done open book.</p>
+<p>There are many ML points to consider that allow for an in depth look into their ability to reason. It’s also not some annoying string search algorithm that is very gameable.</p>
+<section id="id1">
+<h3>Question Statement<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>We live in a world where torch and tensorflow don’t exist. You want to build your own neural net using just numpy. It should</p>
+<ul class="simple">
+<li><p>Support an arbitrary number of layers</p></li>
+<li><p>Have Fully Connected Layers and TanH activations out of the box</p></li>
+<li><p>Do SGD for optimisation</p></li>
+<li><p>(Bonus 1) custom learning rate</p></li>
+<li><p>(Bonus 2) Momentum SGD - this can be tough</p></li>
+</ul>
+<p>You can assume</p>
+<ul class="simple">
+<li><p>No GPU acceleration</p></li>
+<li><p>Infinite RAM</p></li>
+<li><p>No RNNs</p></li>
+<li><p>data is a single (shortish) vector</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Notes<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Longish interview, systems design esque.</p></li>
+<li><p>This can double as a behavioural interview and see how they respond to criticism and suggestions</p></li>
+<li><p>Arbitrary changes should be proposed to see how they handle design.</p>
+<ul>
+<li><p>Dual Fully Connected Layers (W1 &#64; x2 + W2 &#64; x2) should be an interesting mixup</p></li>
+<li><p>Skip Layers?</p></li>
+<li><p>How would they implement Transfer learning</p></li>
+</ul>
+</li>
+<li><p>This can be adapted to implementing a particular simple algorithm that they’re familiar with. Doing Bayesian Linear regression via MCMC achieves a very similar outcome for someone who’s familiar with Bayesian methodology</p></li>
+</ul>
+<p>Many points of discussion, a few below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- How to initialise - why ones and zeros is bad for weight matrices.
+    - I.e. backprop is slow and imbalanced 
+- Shape of state of the FC layer. Column major vs row major? 
+- How to save the x for the backward pass? Design choice
+- How to implement the optimiser
+- Do they write tests - can they check it works
+    - A set of tests is very good to see if they&#39;re considering how it&#39;s going to be used
+    - Checking that training a net on random data reduces loss is good (suggest providing loss function and derivatives for speed)
+- Discussion on numerical considerations (i.e. logs and small numbers, requiring the combination )
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="further-questions">
+<h1>Further Questions<a class="headerlink" href="#further-questions" title="Permalink to this headline">#</a></h1>
+<p>To be added</p>
+<p>Implementing ML algorithms is a great exercise - it doesn’t have to be a neural net, but they can choose an algorithm they’re most familiar with.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- A simple tree algorithm is another great one. 
+- MCMC is another algorithm that is super easy to implement and can be tested on anscombe&#39;s quartet
+- Linear Regression is a bit too simple, so make sure they add more diagnositcs and I would suggest using tro
+</pre></div>
+</div>
+</section>
+<section id="ml-ds-today">
+<h1>ML &amp; DS today<a class="headerlink" href="#ml-ds-today" title="Permalink to this headline">#</a></h1>
+<p>Opinion</p>
+<ol class="simple">
+<li><p>ML/Research Scientist - Almost exclusive to large organisations, these are commonly Postdocs with strong publication records who’ve left academia because of the insane competition for tenure and ply their trade on complex problems. Since large companies tend to have a lot of infrastructure and support, these people tend to come in very specialised since the scale and depth of these problems is very different. For example, the Google Assistant is world class (especially with varying accents) and this level of performance is very research intensive.</p></li>
+<li><p>ML Engineer (Large Company) - The scale at large companies results in a split of the ML roles into scientist (Above) and engineer. Most of this is focussed on things like data pipelines, clusters, implementing algorithms from scientists, scaling up to a cluster or even working with scientists to adapt algorithm for scale. This is much closer to a pure SWE than an ML engineer at a smaller company.</p></li>
+<li><p>ML (Small/Mid company) - specialisation is not really something the company needs and requires. R&amp;D, ops and deployment are tightly knit and there is a significant need to share duties. Problems are less cutting edge and the scale is much smaller. Full datasets will likely fit into RAM so large scale sharding and infra is significantly less important here. The role of engineer and scientist tends to blend together here with the job best being described as a research engineer. There is expectation to develop the algorithms and deploy them as well as maintain all the infrastructure necessary. This is a tricky position to hire for, since it’s very rare to find high level skill in research and software. This merged skillsets are conversely less valuable in a large company, so make sure to not copy and paste requirements - being open is your best bet for finding a good fit.</p></li>
+<li><p>Data Scientist - this role is the worst defined. This role is most commonly found in non-tech firms, but not always. There tends to be a combination of the top 3, but most of the algorithms and software tends to be off the shelf. This job in many ways tends to be a mixture of software engineer and domain expert, or a progression of the Data Analyst. Going beyond off the shelf requires tends to require a full ML team, and the Data Scientists here tend to be using internally built tools and techniques and reporting to the central team developing algorithms for problems. This role is still in flux and will likely be for a while. Any company of significant size will start moving towards ML engineers with math expertise and Data Scientists with domain expertise.</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Hiring"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Software/lsyncd.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Working on a Remote Host</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="resumescreen.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Education/Background</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

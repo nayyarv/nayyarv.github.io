@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hidden Complexity &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Working on a Remote Host" href="../Software/lsyncd.html" />
+    <link rel="prev" title="Reinforcement Learning" href="Reinforcement%20Tosser.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Maths
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Automating%20Binwidth%20Choice%20for%20Histogram.html">
+   Automating Binwidth for np.histogram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Bayesian%20GPS.html">
+   Question
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/Tosser.html">
+   The Game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Maths/abtesting.html">
+   A/B testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="CartPole%20Q%20Learning.html">
+   Q-Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reinforcement%20Tosser.html">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Hidden Complexity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Software/lsyncd.html">
+   Working on a Remote Host
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hiring Muses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/interviews.html">
+   The Rationale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/resumescreen.html">
+   Education/Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/super.html">
+   Do I need Data Science Checklist
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/Machine Learning/nn.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Machine Learning/nn.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Hidden Complexity
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-gpu">
+   The GPU
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   The Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-can-be-data-scientists-too">
+   We can be Data Scientists too!
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-future">
+   The Future
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aside-bayesian-neural-nets">
+   Aside: Bayesian Neural Nets
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Hidden Complexity</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Hidden Complexity
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-gpu">
+   The GPU
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   The Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-can-be-data-scientists-too">
+   We can be Data Scientists too!
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-future">
+   The Future
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aside-bayesian-neural-nets">
+   Aside: Bayesian Neural Nets
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p>Title: A Bayesian’s View on Neural Nets
+Subtitle: Deep Learning, Convolution and the Hype Machine
+Date: 2018-10-23 10:20
+Category: critique
+Tags: critique, ds, advice, neuralnets, neural, deeeplearning, hype
+Authors: Varun Nayyar</p>
+<p>My first neural net was actually coded up in 2009. I had decided to go to med school and while hating the degree program, I got a chance to do an elective called “Science in Medicine”. I didn’t really know how to program at this point, so it was done in excel and I trained a neural net (really a perceptron with 2 input units and a sigmoid activation) to mimc and NAND gate. It is a little known fact that backprop is simple enough to implement in excel. Everyone was suitably impressed (if unsure of what they were seeing), and when I quit to take up a mathematics/engineering degree 6 months later, the signs were there.</p>
+<p>When I finally stopped dabbling in ML and started taking a more formal approach at the start of 2014, I did it primarily out of “Elements of Statistical Learning” by Hastie, Tibshirani and Friedmann. In the very first section on neural nets, this was the description they had given</p>
+<blockquote>
+<div><p>There has been a great deal of hype surrounding neural networks, making them seem magical and mysterious. As we make clear in this section, they are just non-linear statistical models, much like the projection pursuit regression model discussed above.</p>
+</div></blockquote>
+<p>This had been published in 2009, a few years before <a class="reference external" href="https://en.wikipedia.org/wiki/AlexNet">Alexnet</a> and GPU’s burst on scene in 2012. As such, the neural nets in the textbook were small, the <a class="reference external" href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">relu</a> hadn’t even made the cut in activation functions described, and convolutional neural nets were described in some detail, but without the word convolution (called constrained nets - which is arguably more accurate, they’re less complex than dense layers and they’re not even convolutions, they’re cross correlations (which is a moot point given that the convolution is being learned so it doesn’t matter anyway)). My lecturer had inherited the bias, and through him, I too considered that neural nets were nothing special.</p>
+<p>Of course, my friends from the comp sci department were obsessed with neural nets and anything that could use a neural net, and I think deep learning was slowly coming into use (and I applaud the nomenclature). At the time, I preferred bagging (primarily due to my fondness of non-parametric methods) which live on as random forests and even back then was a hipster in the machine learning space as boosting was the premier ensemble method. I chose to do Bayesian Stats and then mucked around a few different areas (GMMs, Symbolic Data, Approximate Bayesian Computations), all of which have had no bearing on my work since, but I am at least secure in <a class="reference external" href="https://en.wikipedia.org/wiki/A_Mathematician%27s_Apology">my mathematician’s apology</a>.</p>
+<p>I recently visited a NVIDIA conference, and despite the fact it was actually a sales pitch to managers and C level exec’s masquerading as a machine learning conference, it did remove the last objections I had to neural nets (meeting the other ML guys was probably more helpful). The basic of the arguments was that the world is inherently non-linear and neural nets are the best way to capture that non-linearity. It wasn’t perfect (and after all which model is), it might be discarded quite easily, but we’re still doing linear regressions and they’re still useful, and in all likelihood, neural nets aren’t going anywhere in the near future.</p>
+<section id="hidden-complexity">
+<h1>Hidden Complexity<a class="headerlink" href="#hidden-complexity" title="Permalink to this headline">#</a></h1>
+<p>I’m going to use the architecture <a class="reference external" href="https://towardsdatascience.com/a-simple-2d-cnn-for-mnist-digit-recognition-a998dbc1e79a">this blog</a> to show what I mean (first result for “convolution mnist”). This is an example of a convolutional neural net for the MNIST data. We have (28, 28) grayscale image input and 60000 images. Num categories is 10.</p>
+<p>This is the keras code he included. I’ve replaced comments with layer information, and dropped layers that have no effect on input/output/no parameters. Convolutions are deceptively simple, in that a convolution layer has only the number of parameters as the kernel size (plus a bias). Since this uses <code class="docutils literal notranslate"><span class="pre">padding='valid'</span></code>, this means for the given (3,3) kernel, the output is (x-2,y-2).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::</span><span class="n">python</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Dense</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="c1"># input = (28, 28, 1)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
+                 <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+
+<span class="c1"># output = (26, 26, 32)</span>
+<span class="c1"># 32 conv layers * (9 kernel params + 1 bias param) = 320</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="c1"># 32 channels</span>
+<span class="c1"># output = (24, 24, 64)</span>
+<span class="c1"># 64 conv * [(32 in channels * 9 kernel params) +  1 bias)] = 18496</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="c1"># 0 param</span>
+<span class="c1"># output = (12, 12, 64 )</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="c1"># 0 param</span>
+<span class="c1"># output = 9216</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="c1"># params = (9216 + 1 bias)  * 128 = 1179776</span>
+<span class="c1"># output = 128</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+<span class="c1"># params = (128 +1) * 10 = 1290</span>
+<span class="c1"># output = 10</span>
+
+<span class="c1"># also!</span>
+<span class="n">param_num</span> <span class="o">=</span> <span class="p">[</span><span class="n">lay</span><span class="o">.</span><span class="n">count_params</span><span class="p">()</span> <span class="k">for</span> <span class="n">lay</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now total parameters = 1,199,882. Yep, this simple-seeming model with 4 layers woth parameters has 1.2 million parameters. For a dataset that has 60,000 images, or 47 million pixels. It has a 99% classification accuracy. However, adding a 3rd convolution layer after the pooling step with 32 filters (<code class="docutils literal notranslate"><span class="pre">model.add(Conv2D(32,</span> <span class="pre">(3,</span> <span class="pre">3),</span> <span class="pre">activation='relu'))</span></code>) would actually reduce the number of parameters to 448298. This is a bit counter-intuitive and is representative of how neural net structure needs to be looked at in more care than it’s layer size.</p>
+<p>In what other way could we develop a model with 1.2 million parameters (or even 450k). Any regression would have at most 28 x 28 = 784 inputs, any tree would be have parameters as number of leaves and boosting bagging would have ensemble size * average number of leaves. Taking mixture models, say K Gaussian mixtures would have 6K-1 parameters for a 2d space. Other than a neural net, I can’t even think of another model that could use as many parameters (maybe SVMs, must investigate)</p>
+<p>One of the reasons neural nets are so powerful is the sheer number of parameters we have it take, allowing for any kind of complexity to be modelled. The parametric forms of most stats try and keep this small to make it easier to calculate, but the nature of the structure means we have a much more complex structure than would otherwise be possible. And this is possible/feasible, primarily due to:</p>
+</section>
+<section id="the-gpu">
+<h1>The GPU<a class="headerlink" href="#the-gpu" title="Permalink to this headline">#</a></h1>
+<p>It’s well known that training neural nets is embarrassingly parallel, and that GPUs are very good at parallel tasks. The result was obvious, but I don’t think many people realise just how critical GPUs have been to the development of neural nets. At around 2012, clock cycles stopped improving like they were in the years before, Moore’s law looked in danger of becoming the number of processors per chip and scientific programming community had been taking advantage of GPU and CUDA code to do various things to tap into more FLOPs than standard compute cores could provide.</p>
+<p>As a GPU is a bunch of streaming multiprocessors (<a class="reference external" href="https://github.com/nayyarv/PyCudaIntro">See my talk on PyCUDA</a> for more details), it’s effectively a multicore cpu where number of cores are optimised over clock speed. Anything that could take advantage of many cores would gain huge benefits. And unlike CPU makers, GPU makers still had a lot of low hanging fruit left to grab, not to mention sticking additional cores wasn’t a copout. While they would improve their micro-architecture every so often, the clock rates of each streaming processor hasn’t improved greatly, but the number of them increases significantly. In fact, Intel sells versions of GPUs that are packed with CPU cores instead of GPU cores.</p>
+<p>Without the aforementioned AlexNet leading the way, it’d be near impossible to conceive of the neural nets having the ubiquity they do. If you were limited to CPU only, I’d be very pessimisstic of seeing the benefits of neural nets we see today. Neural Nets aren’t necessarily better on completely even playing field, but when is the field even? Comparing a neural net running on a GPU vs a neural net on a CPU is a pointless exercise in today’s data science world. Given the sheer amount of computing power a neural net can harness in a way few other algorithms can, neural nets tend to be a magnitude more complex and correspondingly, a magnitude better. In today’s world of large datasets, they’re making use of it the best.</p>
+</section>
+<section id="the-data">
+<h1>The Data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h1>
+<p>The datasets in modern data science have shifted, and this is particularly evident in image data we have. Traditional stats would have a few thousand rows and tens to hundreds of predictors. Feature selection would happen a few ways (ridge, lasso, random forests) or maybe even dimensionality reduction (PCA, autoencoders), commonly augmented with some additional domain knowledge to help direct model building. And by and large, this is still the common paradigm for many data science tasks - select useful features and start building models.</p>
+<p>But this job of feature selection fails in data that doesn’t have such obvious structure. Images, text, video are examples of data that doesn’t have a clear structure and despite the best efforts on NLP researchers, the success has been limited. And this is one of the areas deep learning really shines, it picks up it’s own features quite well. If you’re not sure about how to approach a problem, some deep learning can do most of it for you.</p>
+<p>However, the biggest drawback is the amount of data you need to train a neural net and this is why the feature select -&gt; model process is still such a dominant paradigm, most datasets don’t have the sheer amount of <em>labelled</em> data necessary to throw deep learning at the problem. While we’re generating plenty of unlabelled data via things like  cursor tracking, image and video in social media, blog posts, reviews etc., these are rarely labelled and as such deep learning is of limited use. In fact, data collection can be one of the biggest expenses in running ML research and development.</p>
+<p>This is why unsupervised learning is still so popular, despite it’s difficulty. Reinforcement learning has been a big beneficiary of deep learning since the algorithms generate and label their own data using reward functions and we can use neural nets to approximate the q tables when needed. Ideas such as GANs take inspiration from game theory to teach networks to generate images and ideas such as Variational Auto-encoders seek to find the latent variables of certain spaces, but these have had primarily niche uses so far.</p>
+</section>
+<section id="we-can-be-data-scientists-too">
+<h1>We can be Data Scientists too!<a class="headerlink" href="#we-can-be-data-scientists-too" title="Permalink to this headline">#</a></h1>
+<p>All of this has led to Data Scientists of all kinds, from the bootcamps to the hardened mathematicians throwing neural nets at every problem that dares to rear it’s head. We see CNNs and RNNs taking over the space. The packages such as tensorflow, pytorch etc. make it easy, the open data initiatives help a lot too, and the ease at which one can build a neural net has led to a near overspecialisation on Neural Nets. You can actually use neural net infrastructure to build logistic regressions, or even linear regressions should you choose to do so (though you don’t get all the nice statistics on parameter usefulness and statistics on goodness of fit).</p>
+<p>Does this mean you don’t need Data Scientists? No, even just to build a neural net architecture you need a good understanding of parameter vs data space, you need to know how complex is the problem and thus how complex your architecture needs to be and you need to try a few different architectures. And to solve a problem, using a neural net is only 1 tool of many, it may not even be the appropriate tool for the problem. If you’ve got 100 predictors, 1000 observations, 10 outcoms, it’s probably not be the right approach. Or if it needs to be delivered by a team that doesn’t have a strong technical stack or if the neural net approach is only midly better, there are a lot of considerations that go into building data science solutions.</p>
+</section>
+<section id="the-future">
+<h1>The Future<a class="headerlink" href="#the-future" title="Permalink to this headline">#</a></h1>
+<p>Without Yann LeCunn’s famous (but ultimately confusing with context) “Deep Learning is Dead”, even Andrew Ng, deep learning’s most famous champion, has stopped posting about it on twitter with such regularity. There’s definitely a feeling that deep learning isn’t giving us greater results as we throw new network architectures and computing power at the problem. It’s growth is from it’s application to various problems (from TB screening to automatically searching images). The more pessimistic are <a class="reference external" href="https://blog.piekniewski.info/2018/05/28/ai-winter-is-well-on-its-way/">saying we’re in an AI winter</a> (results have dried up and so too will funding), but what we’re seeing is not the end of Deep Learning, rather the end of Deep Learning hype.</p>
+<p>Problems with Deep Learning have become apparent, and primarily as people have become more well versed in it, they’ve also become more well-versed with it’s limitations. The standard scientific approach of making big claims that get disproved in subsequent publications still holds even in Deep Learning and the twitter verse. The very hype driven nature of this field means that successes are shouted from all over while the embarrassing failures are hidden away (self driving car crashes aside). The fact that most of the research is being driven by large corporations (Baidu, Facebook etc) also represents a change in how machine learning has been advanced, and only exacerbated the hype machine without the pessimissim that academics level at anything daring to call itself ‘new’.</p>
+<p>Deep learning has definitely been revolutionary in the image/video space and will definitely stick around for a long time there (and likely other fields like language processing), until something new and well named comes along and displaces it. Nothing ever lives up to it’s own hype after all, and frankly speaking, Deep Learning and Neural Nets haven’t done too bad. For people in the field, neural nets are something we should know, but not to the exclusion of everything else, and it shouldn’t be the only hammer in our toolkit (lest everything starts to look like a nail). As hype machines find new areas, we need to constantly throw away most of what we know and start again, likely multiple times throughout our career, and it’s our foundations that allow us to approach new topics, pick up new things and work out how to apply new approaches to new problems, lest be become one trick pony.</p>
+</section>
+<section id="aside-bayesian-neural-nets">
+<h1>Aside: Bayesian Neural Nets<a class="headerlink" href="#aside-bayesian-neural-nets" title="Permalink to this headline">#</a></h1>
+<p>No discussion is complete without a Bayesian take on Neural Nets. That is a future topic and one I’m somewhat well versed in, having based my thesis in part on Radford Neal’s Bayesian Neural Nets PhD. We’re at the forefront of a resurgence in Bayesian Methods, which too deserves it’s own post, but I’m going to leave a couple of papers to whet your appetites</p>
+<ol class="simple">
+<li><p>Bayes By Backprop, or <a class="reference external" href="https://arxiv.org/pdf/1505.05424.pdf">Weight Uncertainty in Neural Networks</a> - a very easy to follow paper that allows for distribution backprop to update the variational parameters of each weight with backprop-esque functions.</p></li>
+<li><p>Radford Neal’s PhD, <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.446.9306&amp;rep=rep1&amp;type=pdf">Bayesian Learning for Neural Networks</a> - Radford Neal is probably the professor I’d want to do a PhD under.  Among other things, he has developed his own branch of R, called pqR that is significantly better and I follow his blog to give myself a better understanding of language design fundamentals. This thesis (supervised by Geoff Hinton) is what I consider a foundational paper in this space, and while not perfect, is definitely incredibly influential. It’s a little dense and uses a horrible font, but I think it’s a very valuable resource to get a good understanding of Bayesian Neural Nets.</p></li>
+<li><p>Packages like <a class="reference external" href="http://pyro.ai/">pyro</a> and <a class="reference external" href="https://github.com/tensorflow/probability/blob/master/tensorflow_probability/python/edward2/README.md">edward</a> are great places to start with deep probabilistic networks, though these are not the only choices in town.</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Machine Learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Reinforcement%20Tosser.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Reinforcement Learning</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Software/lsyncd.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Working on a Remote Host</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

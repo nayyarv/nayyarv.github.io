@@ -1,0 +1,590 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>A/B testing &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Q-Learning" href="../Machine%20Learning/CartPole%20Q%20Learning.html" />
+    <link rel="prev" title="The Game" href="Tosser.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Maths
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Automating%20Binwidth%20Choice%20for%20Histogram.html">
+   Automating Binwidth for np.histogram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Bayesian%20GPS.html">
+   Question
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tosser.html">
+   The Game
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   A/B testing
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/CartPole%20Q%20Learning.html">
+   Q-Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/Reinforcement%20Tosser.html">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Machine%20Learning/nn.html">
+   Hidden Complexity
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Software
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Software/lsyncd.html">
+   Working on a Remote Host
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Hiring Muses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/interviews.html">
+   The Rationale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/resumescreen.html">
+   Education/Background
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Hiring/super.html">
+   Do I need Data Science Checklist
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/Maths/abtesting.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/Maths/abtesting.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   A/B testing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-b-testing-summary-critique">
+     A/B Testing Summary + Critique
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandit-methods">
+   Bandit Methods
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bandt-summary-critique">
+     Bandt Summary + Critique
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandit-vs-a-b">
+   Bandit vs A/B
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>A/B testing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   A/B testing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-b-testing-summary-critique">
+     A/B Testing Summary + Critique
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandit-methods">
+   Bandit Methods
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bandt-summary-critique">
+     Bandt Summary + Critique
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandit-vs-a-b">
+   Bandit vs A/B
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p>Title: A/B testing / Bandit Methods
+Subtitle: Resources and Skepticism
+Date: 2018-10-22 10:20
+Category: advice
+Tags: critique, ds, advice, ab, bandit
+Authors: Varun Nayyar</p>
+<p>This is a short article, primarily full of resources. I assume some basic knowledge of A/B testing</p>
+<section id="a-b-testing">
+<h1>A/B testing<a class="headerlink" href="#a-b-testing" title="Permalink to this headline">#</a></h1>
+<p>I must start posting Evan Miller’s articles on the subject which I consider a fantastic resource in this area.</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.evanmiller.org/how-not-to-run-an-ab-test.html">How not to run an A/B test</a> - never end an A/B test before it’s allocated run time.</p></li>
+<li><p><a class="reference external" href="https://www.evanmiller.org/sequential-ab-testing.html">Sequential A/B testing</a> - How to run an A/B test that allows for stopping early without ruining results.</p></li>
+<li><p><a class="reference external" href="https://www.evanmiller.org/bayesian-ab-testing.html">Bayesian A/B testing</a> - a Bayesian approach that allows one to ‘peek’ whenever necessary.</p></li>
+</ol>
+<p>Additionally, this article on <a class="reference external" href="https://www.evanmiller.org/the-low-base-rate-problem.html">statstical power</a> is also something worth reading as it touches on assessing significance as your click and lift is low - basically the lower the success rate is, the more samples you need to ensure that you’ve reached significance.</p>
+<section id="a-b-testing-summary-critique">
+<h2>A/B Testing Summary + Critique<a class="headerlink" href="#a-b-testing-summary-critique" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>All the approaches of A/B testing use the same tech backend. The Sequential and Bayesian approaches allow for checking the results partway through, so there is an expectation that you can check on your results every so often, and maybe even automate this part</p></li>
+<li><p>Traditional A/B testing is the most robust approach - if you use an early stop version, you run the risk of catching significance on a certain day. For example, testing a greeting that uses “Monday” performs better on monday and might show significance that wouldn’t be ther when run over a period of a week.</p></li>
+<li><p>Generally speaking, the bayesian approach is preferred over sequential testing. Or at least has found more wide adoption. This is primarily because you still need to choose a sample size at the beginning, a restriction not present in the bayesian approach.</p></li>
+<li><p>There is a lot of debate over traditional a/b testing vs bayesian methodology, and the basic answer is that it’s not that important. If you want robustness, go traditional, if you expect a big lift, go bayesian so you can stop the experiment as soon as you’re confident in the results.</p></li>
+<li><p>The traditional A/B testing is much better known, is easier to implement and is less likely to confuse someone than a bayesian approach. Frequentist results are easier to misinterpret than Bayesian results, but bayesian results are harder to arrive at.</p></li>
+<li><p>Bayesian methods are more computationally intensive than the equivalent frequentist statistics and has fewer well known implementations.</p></li>
+</ol>
+<p><a class="reference external" href="https://conversionxl.com/blog/bayesian-frequentist-ab-testing/">This article</a> runs through the various differences in much greater detail.
+<a class="reference external" href="https://conversionxl.com/blog/12-ab-split-testing-mistakes-i-see-businesses-make-all-the-time/">And this article</a> lists a few other common errors common in A/B testing in real life, with a very heavy web bias.
+A/B testing does exist in other scenarios (traditionally in use of new medical treatments), but the Web has been a much more fertile ground for turning this up to 11. The original ethical concerns of stopping an effective medical trial early have only been approached in the internet age.</p>
+</section>
+</section>
+<section id="bandit-methods">
+<h1>Bandit Methods<a class="headerlink" href="#bandit-methods" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://lilianweng.github.io/lil-log/2018/01/23/the-multi-armed-bandit-problem-and-its-solutions.html">Bandit methods</a> are the other side of the coin which basically approach the problem of trying a few different methods, seeing the success of one over the other and presenting the more successful one more often.</p>
+<p>More precisely, we set a parameter epsilon which is an indication of our exploration rate that we reduce over the period of our testing (a week for example). We then choose a random page if epsilon &gt; random() otherwise, we serve our best page.</p>
+<p>Bandit methods are a similar response to traditional A/B testing, the question of regret. When you have a better method (say a donation webpage) that’s outperforming your old one, you lose a lot of money for each day you run the A/B test. Also, if you run a lot of A/B tests, setting up and analysing at the end is always a pain, can you set you</p>
+<section id="bandt-summary-critique">
+<h2>Bandt Summary + Critique<a class="headerlink" href="#bandt-summary-critique" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>A more involved tech stack. While A/B testing simply records result of web A/B interaction, bandit methods need to store result of the interaction and then work out which webpage to show based on past results. Unlike a simple random call to determine which page to show, the code at the delivery layer is a bit more involved. This is likely the big issue</p></li>
+<li><p>Bandit methods are quite fragile - they rely on instant feedback to adjust the probability of returning the best value. Email campaigns or conversions that are non-instant break the fundamental assumptions of bandit methods and can lead to it acting quite erratic.</p></li>
+<li><p>Similarly to above, a certain day of the week can push a bandit method into prime position that stays at the top for a while. Contrastingly, a bandit method won’t realise that a certain page is more effective on certain days.</p></li>
+<li><p>Bandit methods need careful consideration of setup and exploration. Since the exploitation tends to favour one over the other, using it tends to result in a massive imbalance, and you can converge to non-ideal answers.</p></li>
+<li><p>Knowledge of the distributions involved allows you to put a bayesian spin on the answer. In particular tracking the upper confidence bound is generally a better idea since you get more certainty the more you exploit and you include potential value in your equations</p></li>
+<li><p>Bandit methods don’t give you inference - the imbalance means you don’t ever have a sample size that’s big enough in both categories to give you the inference you’re after. At the end of a bandit run, you’re unlikely to be completely sure you’ve found the best answer, though you can try various strategies to ensure the certainty</p></li>
+</ol>
+</section>
+</section>
+<section id="bandit-vs-a-b">
+<h1>Bandit vs A/B<a class="headerlink" href="#bandit-vs-a-b" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://conversionxl.com/blog/bandit-tests/">This post</a> is a fantastic resource on this and does a much better job than I could on the question.</p>
+<ol class="simple">
+<li><p>The basic conclusion is that Bandit’s when done well are powerful approaches, but also require an organisation to be completely behind the system.</p></li>
+<li><p>Considerations from A/B tests (running for a week at minimum, public holidays) need to be applied to Bandit methods too.</p></li>
+<li><p>Drawbacks of bandit methods, mainly need for instant feedback, should disqualify these methods when instant feedback is not possible.</p></li>
+<li><p>Bandit methods are great way to run continuous a/b tests without the need to involve a Data Scientist. Designers can upload new pages and can see if the pages are working better.</p></li>
+<li><p>Bandit methods are less complex to scale than an A/B/n test.</p></li>
+</ol>
+<p>Finally it doesn’t really matter. Bandit methods are a natural evolution for an org that has realised the value of A/B tests and is constantly running tests. It’s unlikely you’d go from no testing to bandit methods, and A/B tests are a very robust way to approach this problem, perfect for a beginner in this space.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Maths"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Tosser.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">The Game</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Machine%20Learning/CartPole%20Q%20Learning.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Q-Learning</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
