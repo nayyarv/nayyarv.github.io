@@ -1,11 +1,6 @@
-# Welcome to your Jupyter Book
+## A Blog
+ 
+ A redone blog for the 2020's. Since I like data science related stuff, having a jupyter book make my jupyter notebooks render well is much nicer.
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+ This doesn't sort by time, but I'll probably generate some kind of index to do this automatically for me!
 
-Check out the content pages bundled with this sample book to see more.
-
-```{tableofcontents}
-```

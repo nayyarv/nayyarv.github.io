@@ -17,44 +17,72 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-def gen3peaks(numPoints):
-    numPoints/=3
-    x1 = np.random.randn(numPoints) * 15 + 100
-    x2 = np.random.randn(numPoints) * 10 + 60
-    x3 = np.random.randn(numPoints) * 5+ 140
-    return np.hstack((x1,x2, x3))
+#reverse datasize order to get an idea of what the plot actually should look like
+def quickHist(data):   
+    plt.figure(figsize=(12,5))
+    plt.subplot(121)
+    plt.hist(data, normed=True, alpha = 0.5)
+    plt.title("10 bins")
+    plt.subplot(122)
+    plt.hist(data, normed=True, alpha = 0.5, bins = 50) # manual increase
+    plt.title("50 bins")
 
-# using 3 peaks for more features and also avoids 
-# trap of getting good results with normal data
-
-xbig = gen3peaks(9000)
-xmed = gen3peaks(900)
-xsmall = gen3peaks(90)
+# Large data set
+quickHist(xbig)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [2][0m, in [0;36m<cell line: 11>[0;34m()[0m
-[1;32m      6[0m     [38;5;28;01mreturn[39;00m np[38;5;241m.[39mhstack((x1,x2, x3))
-[1;32m      8[0m [38;5;66;03m# using 3 peaks for more features and also avoids [39;00m
-[1;32m      9[0m [38;5;66;03m# trap of getting good results with normal data[39;00m
-[0;32m---> 11[0m xbig [38;5;241m=[39m [43mgen3peaks[49m[43m([49m[38;5;241;43m9000[39;49m[43m)[49m
-[1;32m     12[0m xmed [38;5;241m=[39m gen3peaks([38;5;241m900[39m)
-[1;32m     13[0m xsmall [38;5;241m=[39m gen3peaks([38;5;241m90[39m)
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Input [0;32mIn [3][0m, in [0;36m<cell line: 12>[0;34m()[0m
+[1;32m      9[0m     plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124m50 bins[39m[38;5;124m"[39m)
+[1;32m     11[0m [38;5;66;03m# Large data set[39;00m
+[0;32m---> 12[0m [43mquickHist[49m[43m([49m[43mxbig[49m[43m)[49m
 
-Input [0;32mIn [2][0m, in [0;36mgen3peaks[0;34m(numPoints)[0m
-[1;32m      1[0m [38;5;28;01mdef[39;00m [38;5;21mgen3peaks[39m(numPoints):
-[1;32m      2[0m     numPoints[38;5;241m/[39m[38;5;241m=[39m[38;5;241m3[39m
-[0;32m----> 3[0m     x1 [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43mrandom[49m[38;5;241;43m.[39;49m[43mrandn[49m[43m([49m[43mnumPoints[49m[43m)[49m [38;5;241m*[39m [38;5;241m15[39m [38;5;241m+[39m [38;5;241m100[39m
-[1;32m      4[0m     x2 [38;5;241m=[39m np[38;5;241m.[39mrandom[38;5;241m.[39mrandn(numPoints) [38;5;241m*[39m [38;5;241m10[39m [38;5;241m+[39m [38;5;241m60[39m
-[1;32m      5[0m     x3 [38;5;241m=[39m np[38;5;241m.[39mrandom[38;5;241m.[39mrandn(numPoints) [38;5;241m*[39m [38;5;241m5[39m[38;5;241m+[39m [38;5;241m140[39m
+Input [0;32mIn [3][0m, in [0;36mquickHist[0;34m(data)[0m
+[1;32m      3[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m12[39m,[38;5;241m5[39m))
+[1;32m      4[0m plt[38;5;241m.[39msubplot([38;5;241m121[39m)
+[0;32m----> 5[0m [43mplt[49m[38;5;241;43m.[39;49m[43mhist[49m[43m([49m[43mdata[49m[43m,[49m[43m [49m[43mnormed[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43malpha[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[38;5;241;43m0.5[39;49m[43m)[49m
+[1;32m      6[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124m10 bins[39m[38;5;124m"[39m)
+[1;32m      7[0m plt[38;5;241m.[39msubplot([38;5;241m122[39m)
 
-File [0;32mmtrand.pyx:1246[0m, in [0;36mnumpy.random.mtrand.RandomState.randn[0;34m()[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/matplotlib/pyplot.py:2602[0m, in [0;36mhist[0;34m(x, bins, range, density, weights, cumulative, bottom, histtype, align, orientation, rwidth, log, color, label, stacked, data, **kwargs)[0m
+[1;32m   2596[0m [38;5;129m@_copy_docstring_and_deprecators[39m(Axes[38;5;241m.[39mhist)
+[1;32m   2597[0m [38;5;28;01mdef[39;00m [38;5;21mhist[39m(
+[1;32m   2598[0m         x, bins[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;28mrange[39m[38;5;241m=[39m[38;5;28;01mNone[39;00m, density[38;5;241m=[39m[38;5;28;01mFalse[39;00m, weights[38;5;241m=[39m[38;5;28;01mNone[39;00m,
+[1;32m   2599[0m         cumulative[38;5;241m=[39m[38;5;28;01mFalse[39;00m, bottom[38;5;241m=[39m[38;5;28;01mNone[39;00m, histtype[38;5;241m=[39m[38;5;124m'[39m[38;5;124mbar[39m[38;5;124m'[39m, align[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmid[39m[38;5;124m'[39m,
+[1;32m   2600[0m         orientation[38;5;241m=[39m[38;5;124m'[39m[38;5;124mvertical[39m[38;5;124m'[39m, rwidth[38;5;241m=[39m[38;5;28;01mNone[39;00m, log[38;5;241m=[39m[38;5;28;01mFalse[39;00m, color[38;5;241m=[39m[38;5;28;01mNone[39;00m,
+[1;32m   2601[0m         label[38;5;241m=[39m[38;5;28;01mNone[39;00m, stacked[38;5;241m=[39m[38;5;28;01mFalse[39;00m, [38;5;241m*[39m, data[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[0;32m-> 2602[0m     [38;5;28;01mreturn[39;00m [43mgca[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mhist[49m[43m([49m
+[1;32m   2603[0m [43m        [49m[43mx[49m[43m,[49m[43m [49m[43mbins[49m[38;5;241;43m=[39;49m[43mbins[49m[43m,[49m[43m [49m[38;5;28;43mrange[39;49m[38;5;241;43m=[39;49m[38;5;28;43mrange[39;49m[43m,[49m[43m [49m[43mdensity[49m[38;5;241;43m=[39;49m[43mdensity[49m[43m,[49m[43m [49m[43mweights[49m[38;5;241;43m=[39;49m[43mweights[49m[43m,[49m
+[1;32m   2604[0m [43m        [49m[43mcumulative[49m[38;5;241;43m=[39;49m[43mcumulative[49m[43m,[49m[43m [49m[43mbottom[49m[38;5;241;43m=[39;49m[43mbottom[49m[43m,[49m[43m [49m[43mhisttype[49m[38;5;241;43m=[39;49m[43mhisttype[49m[43m,[49m
+[1;32m   2605[0m [43m        [49m[43malign[49m[38;5;241;43m=[39;49m[43malign[49m[43m,[49m[43m [49m[43morientation[49m[38;5;241;43m=[39;49m[43morientation[49m[43m,[49m[43m [49m[43mrwidth[49m[38;5;241;43m=[39;49m[43mrwidth[49m[43m,[49m[43m [49m[43mlog[49m[38;5;241;43m=[39;49m[43mlog[49m[43m,[49m
+[1;32m   2606[0m [43m        [49m[43mcolor[49m[38;5;241;43m=[39;49m[43mcolor[49m[43m,[49m[43m [49m[43mlabel[49m[38;5;241;43m=[39;49m[43mlabel[49m[43m,[49m[43m [49m[43mstacked[49m[38;5;241;43m=[39;49m[43mstacked[49m[43m,[49m
+[1;32m   2607[0m [43m        [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43m([49m[43m{[49m[38;5;124;43m"[39;49m[38;5;124;43mdata[39;49m[38;5;124;43m"[39;49m[43m:[49m[43m [49m[43mdata[49m[43m}[49m[43m [49m[38;5;28;43;01mif[39;49;00m[43m [49m[43mdata[49m[43m [49m[38;5;129;43;01mis[39;49;00m[43m [49m[38;5;129;43;01mnot[39;49;00m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m [49m[38;5;28;43;01melse[39;49;00m[43m [49m[43m{[49m[43m}[49m[43m)[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-File [0;32mmtrand.pyx:1403[0m, in [0;36mnumpy.random.mtrand.RandomState.standard_normal[0;34m()[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/matplotlib/__init__.py:1412[0m, in [0;36m_preprocess_data.<locals>.inner[0;34m(ax, data, *args, **kwargs)[0m
+[1;32m   1409[0m [38;5;129m@functools[39m[38;5;241m.[39mwraps(func)
+[1;32m   1410[0m [38;5;28;01mdef[39;00m [38;5;21minner[39m(ax, [38;5;241m*[39margs, data[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m   1411[0m     [38;5;28;01mif[39;00m data [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 1412[0m         [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43max[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;28;43mmap[39;49m[43m([49m[43msanitize_sequence[49m[43m,[49m[43m [49m[43margs[49m[43m)[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m   1414[0m     bound [38;5;241m=[39m new_sig[38;5;241m.[39mbind(ax, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m   1415[0m     auto_label [38;5;241m=[39m (bound[38;5;241m.[39marguments[38;5;241m.[39mget(label_namer)
+[1;32m   1416[0m                   [38;5;129;01mor[39;00m bound[38;5;241m.[39mkwargs[38;5;241m.[39mget(label_namer))
 
-File [0;32m_common.pyx:630[0m, in [0;36mnumpy.random._common.cont[0;34m()[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/matplotlib/axes/_axes.py:6787[0m, in [0;36mAxes.hist[0;34m(self, x, bins, range, density, weights, cumulative, bottom, histtype, align, orientation, rwidth, log, color, label, stacked, **kwargs)[0m
+[1;32m   6785[0m [38;5;28;01mif[39;00m patch:
+[1;32m   6786[0m     p [38;5;241m=[39m patch[[38;5;241m0[39m]
+[0;32m-> 6787[0m     [43mp[49m[38;5;241;43m.[39;49m[43mupdate[49m[43m([49m[43mkwargs[49m[43m)[49m
+[1;32m   6788[0m     [38;5;28;01mif[39;00m lbl [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m   6789[0m         p[38;5;241m.[39mset_label(lbl)
 
-[0;31mTypeError[0m: 'float' object cannot be interpreted as an integer
-TypeError: 'float' object cannot be interpreted as an integer
+File [0;32m/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/matplotlib/artist.py:1064[0m, in [0;36mArtist.update[0;34m(self, props)[0m
+[1;32m   1062[0m             func [38;5;241m=[39m [38;5;28mgetattr[39m([38;5;28mself[39m, [38;5;124mf[39m[38;5;124m"[39m[38;5;124mset_[39m[38;5;132;01m{[39;00mk[38;5;132;01m}[39;00m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)
+[1;32m   1063[0m             [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m callable(func):
+[0;32m-> 1064[0m                 [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m[38;5;28mtype[39m([38;5;28mself[39m)[38;5;241m.[39m[38;5;18m__name__[39m[38;5;132;01m!r}[39;00m[38;5;124m object [39m[38;5;124m"[39m
+[1;32m   1065[0m                                      [38;5;124mf[39m[38;5;124m"[39m[38;5;124mhas no property [39m[38;5;132;01m{[39;00mk[38;5;132;01m!r}[39;00m[38;5;124m"[39m)
+[1;32m   1066[0m             ret[38;5;241m.[39mappend(func(v))
+[1;32m   1067[0m [38;5;28;01mif[39;00m ret:
+
+[0;31mAttributeError[0m: 'Rectangle' object has no property 'normed'
+AttributeError: 'Rectangle' object has no property 'normed'
 

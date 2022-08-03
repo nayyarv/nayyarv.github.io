@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Q-Learning &#8212; My sample book</title>
+    <title>CartPole Q Learning &#8212; Bayesian Learning</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -100,7 +100,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">My sample book</h1>
+      <h1 class="site-logo" id="site-title">Bayesian Learning</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -112,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Welcome to your Jupyter Book
+                    A Blog
                 </a>
             </li>
         </ul>
@@ -124,17 +124,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Maths/Automating%20Binwidth%20Choice%20for%20Histogram.html">
-   Automating Binwidth for np.histogram
+   My Contribution to Numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Maths/Bayesian%20GPS.html">
-   Question
+   Bayesian GPS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Maths/Tosser.html">
-   The Game
+   Tosser
   </a>
  </li>
  <li class="toctree-l1">
@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Q-Learning
+   CartPole Q Learning
   </a>
  </li>
  <li class="toctree-l1">
@@ -257,7 +257,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/content/Machine Learning/CartPole Q Learning.ipynb"
+        <a href="https://mybinder.org/v2/gh/nayyarv/nayyarv.github.io/main?urlpath=tree/content/Machine Learning/CartPole Q Learning.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -291,19 +291,10 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
+<a href="https://github.com/nayyarv/nayyarv.github.io"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -311,31 +302,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/Machine Learning/CartPole Q Learning.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -404,32 +372,32 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-learning">
    Q-Learning
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implementing-q-learning">
    Implementing Q-Learning
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cartpole">
    Cartpole
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-q-learning">
    Neural Q Learning
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusion">
    Conclusion
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#acknowledgements">
    Acknowledgements
   </a>
@@ -443,7 +411,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Q-Learning</h1>
+                <h1>CartPole Q Learning</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -453,32 +421,32 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q-learning">
    Q-Learning
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implementing-q-learning">
    Implementing Q-Learning
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cartpole">
    Cartpole
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-q-learning">
    Neural Q Learning
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusion">
    Conclusion
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#acknowledgements">
    Acknowledgements
   </a>
@@ -493,7 +461,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <ul class="simple">
+  <section class="tex2jax_ignore mathjax_ignore" id="cartpole-q-learning">
+<h1>CartPole Q Learning<a class="headerlink" href="#cartpole-q-learning" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
 <li><p>Title: CartPole Q Learning</p></li>
 <li><p>Subtitle: Using Q Learning to Play cartpole</p></li>
 <li><p>Date: 2018-10-21 13:20</p></li>
@@ -504,7 +474,7 @@ title="Print to PDF"
 <p>I’ve been learning about reinforcement learning and wonder how it can be applied in my work. A common paradigm of machine learning/data science is to develop a model that can predict and feed those predictions into relatively simple code (or into a report for humans) to make decisions. For example, a bank might use a model to predict probability of default, and use that to suggest an interest rate. In many cases, the hard part is estimating risk, once that’s been worked out the decision is easy. Or a charity might look into the profile of it’s donors and combine with census data to see what can be done.</p>
 <p>However, this is not always the case. Games are a fantastic example of needing to process information and then making a decision on how to react. Here the prediction problem is one aspect and optimizing for current state only isn’t necessarily a good idea, we need to optimize a bit longer term. Lot’s of control problems can also take reinforcement learning.</p>
 <section id="q-learning">
-<h1>Q-Learning<a class="headerlink" href="#q-learning" title="Permalink to this headline">#</a></h1>
+<h2>Q-Learning<a class="headerlink" href="#q-learning" title="Permalink to this headline">#</a></h2>
 <p>We’re going to dive into this problem using Q-Learning. <a class="reference external" href="https://lilianweng.github.io/lil-log/2018/02/19/a-long-peek-into-reinforcement-learning.html#q-learning-off-policy-td-control">This Blog</a> is generally fantastic, but it also has a nice section on Q-Learning that will be a better reference so I can skip the maths. The basic intuition is that given a various state, we try and choose the action that has better long term reward. This is done by recording all playthroughs (in a smart way) and seeing what actions have what results in each state. In the early stages, the algo has no idea what it’s doing and will make choices randomly and see what happens. It will learn that certain actions in a state result tend to result in failure (walking into a goomba in mario) and certain actions result in some kind of reward (jumping into a goomba). More explicitly, each state’s value is equal to it’s reward and a discounted amount of expected reward</p>
 <p>i.e. for a determinstic game with finite state, for action <span class="math notranslate nohighlight">\(a\)</span> in state <span class="math notranslate nohighlight">\(s\)</span> that moves it to state <span class="math notranslate nohighlight">\(s'\)</span> and gives reward <span class="math notranslate nohighlight">\(r\)</span>
 \begin{align}
@@ -529,7 +499,7 @@ B_n &amp;= [r + \gamma * max_{a} Q_n(s’,a)]
 <p>And noting that <span class="math notranslate nohighlight">\(\alpha \sum_{n=0} (1-\alpha)^n = 1\)</span>, the above can be treated as a weighted expectation. Smaller values of alpha bring the value closer to an unweighted expectation. Hence we can think of choosing the best action in the new state as choosing the best expected action in the new state.</p>
 </section>
 <section id="implementing-q-learning">
-<h1>Implementing Q-Learning<a class="headerlink" href="#implementing-q-learning" title="Permalink to this headline">#</a></h1>
+<h2>Implementing Q-Learning<a class="headerlink" href="#implementing-q-learning" title="Permalink to this headline">#</a></h2>
 <p>Q-Learning has two common implementations, tabular which works well for games with finite state and Neural Q Learning which uses a neural net to convert state into rewards for various actions. Neural Q learning has been extended to DQN which uses a variety of tricks to improve it’s performance (it’s quite brittle as is). In neural q learning, the <span class="math notranslate nohighlight">\(\alpha \)</span> updating isn’t necessary since the neural net will look at all Q(s,a) combinations as part of it’s training set. The neural net is being used as a function approximator and could be replaced by any function that can be used as an approximator (trees, k-NN etc), but in general neural nets tend to have very efficient code (GPUs) that allow an extra order of magnitude.</p>
 <p>Before we start implementing, I’m going to define an interface, so I can reuse my agent code.</p>
 <div class="cell docutils container">
@@ -574,7 +544,7 @@ B_n &amp;= [r + \gamma * max_{a} Q_n(s’,a)]
 <p>Also, let’s introduce the game and agent</p>
 </section>
 <section id="cartpole">
-<h1>Cartpole<a class="headerlink" href="#cartpole" title="Permalink to this headline">#</a></h1>
+<h2>Cartpole<a class="headerlink" href="#cartpole" title="Permalink to this headline">#</a></h2>
 <p>For the demonstration of Q-Learning, we’re going to use <a class="reference external" href="https://gym.openai.com/envs/CartPole-v1/">OpenAI’s Cartpole</a>. The Agent here is actually quite straightforward, the magic is happening in the Q function approximator.</p>
 <p>Cartpole state:</p>
 <ol class="simple">
@@ -800,28 +770,28 @@ B_n &amp;= [r + \gamma * max_{a} Q_n(s’,a)]
   deprecation(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1250: eps:0.95,  max: 92.0 ave: 21.60 std: 11.73
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1250: eps:0.95,  max: 96.0 ave: 21.22 std: 11.61
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2500: eps:0.90,  max: 110.0 ave: 22.66 std: 12.72
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2500: eps:0.90,  max: 102.0 ave: 22.95 std: 12.19
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3750: eps:0.86,  max: 90.0 ave: 25.17 std: 13.94
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3750: eps:0.86,  max: 112.0 ave: 25.07 std: 14.06
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000: eps:0.81,  max: 118.0 ave: 27.17 std: 15.30
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000: eps:0.81,  max: 124.0 ave: 28.09 std: 15.60
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6250: eps:0.76,  max: 118.0 ave: 31.31 std: 17.42
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6250: eps:0.76,  max: 164.0 ave: 31.49 std: 18.05
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7500: eps:0.71,  max: 167.0 ave: 35.66 std: 20.08
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7500: eps:0.71,  max: 131.0 ave: 34.28 std: 19.29
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8750: eps:0.67,  max: 173.0 ave: 38.72 std: 22.04
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8750: eps:0.67,  max: 175.0 ave: 39.99 std: 22.96
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000: eps:0.62,  max: 134.0 ave: 42.75 std: 22.87
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000: eps:0.62,  max: 199.0 ave: 46.20 std: 26.27
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -837,20 +807,64 @@ B_n &amp;= [r + \gamma * max_{a} Q_n(s’,a)]
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">ns</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="mi">25000</span><span class="p">)</span>
 
 <span class="nn">Input In [2],</span> in <span class="ni">Agent.train</span><span class="nt">(self, num_epsiodes, initeps, finaleps)</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="n">new_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="c1"># add the future reward * decay if we&#39;re still going</span>
-<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">reward</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Qstate</span><span class="o">.</span><span class="n">get_max</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="bp">self</span><span class="o">.</span><span class="n">Qstate</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">reward</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>         <span class="n">reward</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Qstate</span><span class="o">.</span><span class="n">get_max</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>         <span class="n">steps</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">---&gt; </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">Qstate</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">reward</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="n">state</span> <span class="o">=</span> <span class="n">new_state</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="n">num_steps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">steps</span>
 
-<span class="nn">Input In [3],</span> in <span class="ni">QTable.get_max</span><span class="nt">(self, state)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_discretize</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="bp">self</span><span class="o">.</span><span class="n">qdict</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qdict</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">action</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">QTable</span><span class="o">.</span><span class="n">ALPHA</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>                                      <span class="o">+</span> <span class="n">value</span> <span class="o">*</span> <span class="n">QTable</span><span class="o">.</span><span class="n">ALPHA</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="k">def</span> <span class="nf">get_max</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="sd">&quot;&quot;&quot;get maximum q score for a state over actions&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span>     <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_discretize</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="nn">Input In [3],</span> in <span class="ni">QTable.__setitem__</span><span class="nt">(self, key, value)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;can only set item on (state, action) pair&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">42</span>     <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_discretize</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="bp">self</span><span class="o">.</span><span class="n">qdict</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qdict</span><span class="p">[</span><span class="n">state</span><span class="p">][</span><span class="n">action</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">QTable</span><span class="o">.</span><span class="n">ALPHA</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>                                  <span class="o">+</span> <span class="n">value</span> <span class="o">*</span> <span class="n">QTable</span><span class="o">.</span><span class="n">ALPHA</span><span class="p">)</span>
+
+<span class="nn">Input In [3],</span> in <span class="ni">QTable._discretize</span><span class="nt">(self, obs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="sd">&quot;&quot;&quot;assume a tuple is already discretized&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">19</span>     <span class="n">state</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">obs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">))]</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">return</span> <span class="n">obs</span>
+
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="sd">&quot;&quot;&quot;assume a tuple is already discretized&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">19</span>     <span class="n">state</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">obs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">))]</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">return</span> <span class="n">obs</span>
+
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">digitize</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/numpy/lib/function_base.py:5559,</span> in <span class="ni">digitize</span><span class="nt">(x, bins, right)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5557</span>     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">-</span> <span class="n">_nx</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">bins</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5558</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">5559</span>     <span class="k">return</span> <span class="n">_nx</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">)</span>
+
+<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">searchsorted</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/numpy/core/fromnumeric.py:1387,</span> in <span class="ni">searchsorted</span><span class="nt">(a, v, side, sorter)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_searchsorted_dispatcher</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1320</span> <span class="k">def</span> <span class="nf">searchsorted</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sorter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1322</span><span class="sd">     Find indices where elements should be inserted to maintain order.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1323</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1386</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1387</span>     <span class="k">return</span> <span class="n">_wrapfunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;searchsorted&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">,</span> <span class="n">sorter</span><span class="o">=</span><span class="n">sorter</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/numpy/core/fromnumeric.py:57,</span> in <span class="ni">_wrapfunc</span><span class="nt">(obj, method, *args, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="k">return</span> <span class="n">_wrapit</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">57</span>     <span class="k">return</span> <span class="n">bound</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># A TypeError occurs if the object does have such a method in its</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="c1"># class, but its signature is not identical to that of NumPy&#39;s. This</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="c1"># Call _wrapit from within the except clause to ensure a potential</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="c1"># exception has a traceback chain.</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="k">return</span> <span class="n">_wrapit</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -1015,9 +1029,7 @@ B_n &amp;= [r + \gamma * max_{a} Q_n(s’,a)]
 148 [-0.06287811 -0.40721096 -0.0409797   0.28441177] 0
 149 [-0.07102233 -0.6017252  -0.03529147  0.56389352] 1
 150 [-0.08305683 -0.4061263  -0.0240136   0.26030432] 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>151 [-0.09117936 -0.21066993 -0.01880751 -0.03985503] 0
+151 [-0.09117936 -0.21066993 -0.01880751 -0.03985503] 0
 152 [-0.09539275 -0.4055172  -0.01960461  0.24683511] 0
 153 [-0.1035031  -0.60035375 -0.01466791  0.53327039] 0
 154 [-0.11551017 -0.79526638 -0.0040025   0.82129566] 0
@@ -1086,7 +1098,7 @@ Numsteps: 200
 <p>This approach is heavily dependent on my discretization and the gamma and alpha values. Also depending on the epsilon change, you can get much better behaviour with a lot of tweaking.</p>
 </section>
 <section id="neural-q-learning">
-<h1>Neural Q Learning<a class="headerlink" href="#neural-q-learning" title="Permalink to this headline">#</a></h1>
+<h2>Neural Q Learning<a class="headerlink" href="#neural-q-learning" title="Permalink to this headline">#</a></h2>
 <p>In this case, we use a neural net to try and predict action from state. The basic topology is we feed in the state and the neural net will predict the Q for the various actions (4 input layers and 2 output layers in this case). To do the training we feed in state, action and bellman value. The neural net will simply mask the action used to calculate the loss function.</p>
 <p>More precisely, we predict the Q for the (s,a) pair and Q for all a for (s’, a). We then fit Q on (s,a) with the bellman update (<span class="math notranslate nohighlight">\(\gamma * max_a Q(s',a)\)</span>) . This means each step has our neural net running a fit, which makes this quite slow compared to tabular version.</p>
 <p>The chosen topology has 2 hidden layers of 20 nodes each, relu activations, and we combine to the 2 action states with a linear layer. This neural net is quite brittle and the hyper parameters have been copied from an existing implementation. Intuitively, we’re updating the neural net each observation and this means that our gradient climbs seem to be changing constantly</p>
@@ -1339,14 +1351,15 @@ Numsteps: 92
 </div>
 </section>
 <section id="conclusion">
-<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h1>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>Hope you’ve enjoyed this brief intro to Q Learning.</p>
 <p>Neural Q learning is quite brittle and unstable (these things are addressed in an upgrade called DQN) compared to tabular Q in this case. We can see the neural Q get quite good, then get worse, not to mention how much slower it is. The problem with tabular q is memory size which can grow out of control in more complex problems, especially ones with limited linearity and of course, when we need to interpret from pixels/video as opposed to a much nicer number based interface.</p>
 </section>
 <section id="acknowledgements">
-<h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">#</a></h1>
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">#</a></h2>
 <p>Thanks to starai (sans a website) for providing forums and lectures to kickstart this.
 Alexander Long for providing some code skeletons to work with.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1397,7 +1410,7 @@ Alexander Long for providing some code skeletons to work with.</p>
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Varun Nayyar<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

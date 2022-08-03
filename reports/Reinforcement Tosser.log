@@ -103,7 +103,7 @@ class Epsilon:
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [2][0m, in [0;36m<cell line: 4>[0;34m()[0m
+Input [0;32mIn [3][0m, in [0;36m<cell line: 4>[0;34m()[0m
 [1;32m      1[0m [38;5;66;03m## support code - this is not well documented and pulled from some prior work in this space[39;00m
 [1;32m      2[0m [38;5;66;03m## Will move to a library eventually[39;00m
 [1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
