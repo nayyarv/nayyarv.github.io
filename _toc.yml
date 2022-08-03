@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Maths
+    chapters:
+    - glob: content/Maths/*
+  - caption: Machine Learning
+    chapters:
+    - glob:  content/Machine Learning/*
+  - caption: Software
+    chapters:
+    - glob:  content/Software/*
+  - caption: Hiring Muses
+    chapters:
+    - glob:  content/Hiring/*
+
