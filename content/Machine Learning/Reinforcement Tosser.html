@@ -612,21 +612,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">## support code - this is not well documented and pulled from some prior work in this space</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">## Will move to a library eventually</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sortedcontainers</span> <span class="kn">import</span> <span class="n">SortedList</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">medianFromSorted</span><span class="p">(</span><span class="n">slist</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">slist</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sortedcontainers&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="agent">
@@ -751,15 +736,33 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 0 of 100000, eps: 1.0
-Episode: 10000 of 100000, eps: 0.9000000000004551
-Episode: 20000 of 100000, eps: 0.8000000000009102
-Episode: 30000 of 100000, eps: 0.7000000000013653
-Episode: 40000 of 100000, eps: 0.6000000000018204
-Episode: 50000 of 100000, eps: 0.5000000000022755
-Episode: 60000 of 100000, eps: 0.4000000000021755
-Episode: 70000 of 100000, eps: 0.3000000000020755
-Episode: 80000 of 100000, eps: 0.2000000000019755
-Episode: 90000 of 100000, eps: 0.10000000000191017
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 10000 of 100000, eps: 0.9000000000004551
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 20000 of 100000, eps: 0.8000000000009102
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 30000 of 100000, eps: 0.7000000000013653
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 40000 of 100000, eps: 0.6000000000018204
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 50000 of 100000, eps: 0.5000000000022755
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 60000 of 100000, eps: 0.4000000000021755
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 70000 of 100000, eps: 0.3000000000020755
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 80000 of 100000, eps: 0.2000000000019755
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Episode: 90000 of 100000, eps: 0.10000000000191017
 </pre></div>
 </div>
 </div>
@@ -777,7 +780,7 @@ Episode: 90000 of 100000, eps: 0.10000000000191017
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.55, 2.07, 7.96]), 7.974539999999999)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.74  , 2.01  , 7.0375]), 5.89594)
 </pre></div>
 </div>
 </div>
@@ -795,7 +798,7 @@ Episode: 90000 of 100000, eps: 0.10000000000191017
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.48, 3.33, 4.9 ]), 9.62875)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.76, 2.41, 7.74]), 6.52583)
 </pre></div>
 </div>
 </div>
@@ -813,7 +816,7 @@ Episode: 90000 of 100000, eps: 0.10000000000191017
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.73, 2.2 , 6.24]), 6.388739999999999)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.74, 2.17, 7.32]), 6.2765)
 </pre></div>
 </div>
 </div>
